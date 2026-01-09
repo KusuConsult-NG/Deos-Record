@@ -13,7 +13,7 @@ export default function Footer() {
                         <h2 className="text-lg font-bold tracking-tight text-slate-900 dark:text-gold">Deos Record</h2>
                     </div>
                     <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
-                        Abuja's premier multi-media studio for professional podcasters, musicians, and filmmakers.
+                        Abuja&apos;s premier multi-media studio for professional podcasters, musicians, and filmmakers.
                     </p>
                     <div className="flex gap-4">
                         <Link className="size-10 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-gold transition-colors" href="#">

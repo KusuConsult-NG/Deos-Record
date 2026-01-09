@@ -78,7 +78,7 @@ export default function BlogPage() {
                             <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent"></div>
                         </div>
                         <div className="relative z-10 p-6 md:p-10 max-w-4xl space-y-4">
-                            <span className="inline-block px-3 py-1 bg-primary text-background-dark text-xs font-bold uppercase tracking-widest rounded-md mb-2">Editor's Pick</span>
+                            <span className="inline-block px-3 py-1 bg-primary text-background-dark text-xs font-bold uppercase tracking-widest rounded-md mb-2">Editor&apos;s Pick</span>
                             <h2 className="text-white text-3xl md:text-5xl font-black leading-tight group-hover:text-primary transition-colors cursor-pointer">
                                 The Ultimate Guide to Acoustic Treatment for Home Studios
                             </h2>

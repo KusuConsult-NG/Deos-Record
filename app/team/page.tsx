@@ -1,5 +1,6 @@
 
 import Link from "next/link";
+import Image from "next/image";
 import Footer from "../../components/Footer";
 
 export default function TeamPage() {
@@ -9,7 +10,7 @@ export default function TeamPage() {
             <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 px-6 md:px-20 lg:px-40 py-4 bg-background-light dark:bg-background-dark/95 sticky top-0 z-50 backdrop-blur-sm">
                 <div className="flex items-center gap-3">
                     <div className="h-10 w-10 relative rounded-full overflow-hidden">
-                        <img src="/logo.jpg" alt="Deos Record" className="object-cover w-full h-full" />
+                        <Image src="/logo.jpg" alt="Deos Record" layout="fill" objectFit="cover" />
                     </div>
                     <h2 className="text-slate-900 dark:text-white text-xl font-black leading-tight tracking-tight">DEOS RECORD</h2>
                 </div>
@@ -31,7 +32,7 @@ export default function TeamPage() {
                     <div className="max-w-[1200px] mx-auto">
                         <div className="flex flex-wrap items-end justify-between gap-6">
                             <div className="flex flex-col gap-4 max-w-2xl">
-                                <span className="text-primary font-bold uppercase tracking-[0.2em] text-xs">Abuja's Premier Studio</span>
+                                <span className="text-primary font-bold uppercase tracking-[0.2em] text-xs">Abuja&apos;s Premier Studio</span>
                                 <h1 className="text-slate-900 dark:text-white text-5xl md:text-6xl font-black leading-tight tracking-tight">The Creative Minds</h1>
                                 <p className="text-slate-600 dark:text-slate-400 text-lg md:text-xl font-normal leading-relaxed">
                                     Behind every masterpiece at Deos Record is a team of dedicated visionaries crafting the future of multimedia production.
@@ -239,7 +240,7 @@ export default function TeamPage() {
                             Ready to bring your project to life?
                         </h2>
                         <p className="text-slate-600 dark:text-slate-400 text-lg md:text-xl font-normal max-w-2xl mx-auto">
-                            Our experts are ready to transform your vision into a multimedia masterpiece. Let's record history together in Abuja.
+                            Our experts are ready to transform your vision into a multimedia masterpiece. Let&apos;s record history together in Abuja.
                         </p>
                         <div className="flex justify-center pt-4">
                             <button className="flex min-w-[240px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-16 px-10 bg-primary text-background-dark text-lg font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-[0_10px_40px_-10px_rgba(238,189,43,0.3)]">

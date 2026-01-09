@@ -9,7 +9,7 @@ export default function AboutPage() {
                 <div className="flex items-center gap-4 text-slate-900 dark:text-white">
                     <Link href="/" className="flex items-center gap-2">
                         <div className="h-10 w-10 relative rounded-full overflow-hidden">
-                            <img src="/logo.jpg" alt="Deos Record" className="object-cover w-full h-full" />
+                            <Image src="/logo.jpg" alt="Deos Record" layout="fill" objectFit="cover" />
                         </div>
                         <span className="text-lg font-bold">Deos Record</span>
                     </Link>
@@ -65,7 +65,7 @@ export default function AboutPage() {
                     <div className="p-8 rounded-2xl bg-white dark:bg-[#221d10] border border-slate-200 dark:border-[#483f23] shadow-lg shadow-black/5">
                         <span className="material-symbols-outlined text-4xl text-primary mb-4">diamond</span>
                         <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Premium Quality</h3>
-                        <p className="text-slate-500 dark:text-[#9e9475] text-sm leading-relaxed">We don't compromise. From our Neve preamps to our RED cameras, we invest in the best to make you look and sound your best.</p>
+                        <p className="text-slate-500 dark:text-[#9e9475] text-sm leading-relaxed">We don&apos;t compromise. From our Neve preamps to our RED cameras, we invest in the best to make you look and sound your best.</p>
                     </div>
                     <div className="p-8 rounded-2xl bg-white dark:bg-[#221d10] border border-slate-200 dark:border-[#483f23] shadow-lg shadow-black/5">
                         <span className="material-symbols-outlined text-4xl text-primary mb-4">groups</span>

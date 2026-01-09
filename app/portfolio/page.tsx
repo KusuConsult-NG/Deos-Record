@@ -1,5 +1,6 @@
 
 import Link from "next/link";
+import Image from "next/image";
 import Footer from "../../components/Footer";
 
 export default function PortfolioPage() {
@@ -9,7 +10,7 @@ export default function PortfolioPage() {
             <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#484223] px-10 py-5 mx-auto w-full max-w-[1200px]">
                 <div className="flex items-center gap-4 text-white">
                     <div className="h-10 w-10 relative rounded-full overflow-hidden">
-                        <img src="/logo.jpg" alt="Deos Record" className="object-cover w-full h-full" />
+                        <Image src="/logo.jpg" alt="Deos Record" layout="fill" objectFit="cover" />
                     </div>
                     <h2 className="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Deos Record</h2>
                 </div>
@@ -48,7 +49,7 @@ export default function PortfolioPage() {
                             </button>
                             <div className="absolute bottom-6 left-6 z-10">
                                 <span className="bg-black/60 backdrop-blur-md px-3 py-1 rounded text-primary text-xs font-bold uppercase mb-2 inline-block">Featured Production</span>
-                                <h3 className="text-3xl font-bold text-white shadow-sm">Artist Music Video: "Abuja Nights"</h3>
+                                <h3 className="text-3xl font-bold text-white shadow-sm">Artist Music Video: &quot;Abuja Nights&quot;</h3>
                                 <p className="text-white/80 text-sm">Director: Deos Record Team | 4K Cinematic</p>
                             </div>
                             <div className="absolute inset-x-0 bottom-0 px-6 py-4 bg-linear-to-t from-black/80 to-transparent">

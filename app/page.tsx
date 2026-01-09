@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Footer from "../components/Footer";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -8,7 +9,7 @@ export default function Home() {
         <div className="max-w-[1280px] mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 relative rounded-full overflow-hidden">
-              <img src="/logo.jpg" alt="Deos Record" className="object-cover w-full h-full" />
+              <Image src="/logo.jpg" alt="Deos Record" layout="fill" objectFit="cover" />
             </div>
             <h2 className="text-xl font-bold tracking-tight">Deos Record</h2>
           </div>
@@ -35,7 +36,7 @@ export default function Home() {
               Educate, enlighten, and <span className="text-primary italic">broaden</span> understanding
             </h1>
             <p className="text-slate-500 dark:text-slate-400 text-lg md:text-xl max-w-2xl leading-relaxed">
-              Abuja's Premier Multi-Media Hub for high-fidelity Podcasting, Music Production, and Cinematic Video Storytelling.
+              Abuja&apos;s Premier Multi-Media Hub for high-fidelity Podcasting, Music Production, and Cinematic Video Storytelling.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/booking" className="bg-primary text-white px-8 py-4 rounded-full text-base font-bold flex items-center gap-2 group">
@@ -163,7 +164,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-4 mb-8">
                   <div className="size-16 rounded-full overflow-hidden border-2 border-gold/20">
-                    <img alt="Music Artist" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdktcJnFQTz590iq7QYMk7p_nf_PZweuixZfgOqe7Icuih2ztAfK_5h4N3skGxeXppogOpmd0WWt38A3bZBI9DFlf4OuD8wUNcbQIuy_-AgcLwy0jacG59vPnhjk-FP674W3OZIqoip9fFajqV1xzZJWsjlNdaoFT0m-M5G4SZaoTkox308BSlH4Vho2R307njJNkvCZfawWKgQY-qlW1olaKcPNQOV42L9AwUt2BThAQDmAjdxkGrwZhmu5GxPp4Dja89UF3g_rU" />
+                    <div className="relative w-full h-full"> <Image alt="Music Artist" layout="fill" objectFit="cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdktcJnFQTz590iq7QYMk7p_nf_PZweuixZfgOqe7Icuih2ztAfK_5h4N3skGxeXppogOpmd0WWt38A3bZBI9DFlf4OuD8wUNcbQIuy_-AgcLwy0jacG59vPnhjk-FP674W3OZIqoip9fFajqV1xzZJWsjlNdaoFT0m-M5G4SZaoTkox308BSlH4Vho2R307njJNkvCZfawWKgQY-qlW1olaKcPNQOV42L9AwUt2BThAQDmAjdxkGrwZhmu5GxPp4Dja89UF3g_rU" /> </div>
                   </div>
                   <div>
                     <h4 className="font-bold text-lg">Emmanuel Okafor</h4>
@@ -171,7 +172,7 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-slate-300 text-lg leading-relaxed italic">
-                  "The acoustic quality and technical expertise at Deos Record are unmatched in Abuja. They didn't just record my album; they brought my creative vision to life."
+                  &quot;The acoustic quality and technical expertise at Deos Record are unmatched in Abuja. They didn&apos;t just record my album; they brought my creative vision to life.&quot;
                 </p>
               </div>
               <div className="min-w-[320px] md:min-w-[420px] bg-white/5 border border-white/10 p-10 rounded-2xl snap-center relative">
@@ -180,7 +181,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-4 mb-8">
                   <div className="size-16 rounded-full overflow-hidden border-2 border-gold/20">
-                    <img alt="Podcaster" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjuijLifq5mjFZPOz3Rqi7PJrHQaGhSpHKp3Cltq3d43-9lIfGSEssEWLgkffGxaGva-scjWTrLRjdh0bHHtICy3XnzyTUIFRYL6P-4qwZhRIrw_XYtqbvtm17fcWMmjgSKO-7K2sjgGR1k61eFmXvf7pp3edlvEhRAShsR20KtDmW-KzSXb-7rkVGqaHT9z4i3ThLOsSBMWdm7OjViFyJM7WE9ABWHCeL61yBIs9QH7kIzyjp_MqQM_W8300htNZm_qPIyihOq1U" />
+                    <div className="relative w-full h-full"> <Image alt="Podcaster" layout="fill" objectFit="cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjuijLifq5mjFZPOz3Rqi7PJrHQaGhSpHKp3Cltq3d43-9lIfGSEssEWLgkffGxaGva-scjWTrLRjdh0bHHtICy3XnzyTUIFRYL6P-4qwZhRIrw_XYtqbvtm17fcWMmjgSKO-7K2sjgGR1k61eFmXvf7pp3edlvEhRAShsR20KtDmW-KzSXb-7rkVGqaHT9z4i3ThLOsSBMWdm7OjViFyJM7WE9ABWHCeL61yBIs9QH7kIzyjp_MqQM_W8300htNZm_qPIyihOq1U" /> </div>
                   </div>
                   <div>
                     <h4 className="font-bold text-lg">Zainab Bello</h4>
@@ -188,7 +189,7 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-slate-300 text-lg leading-relaxed italic">
-                  "Transitioning to video podcasting was seamless with their multi-cam setup. The professional atmosphere helps my guests feel relaxed and ready to talk."
+                  &quot;Transitioning to video podcasting was seamless with their multi-cam setup. The professional atmosphere helps my guests feel relaxed and ready to talk.&quot;
                 </p>
               </div>
               <div className="min-w-[320px] md:min-w-[420px] bg-white/5 border border-white/10 p-10 rounded-2xl snap-center relative">
@@ -197,7 +198,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-4 mb-8">
                   <div className="size-16 rounded-full overflow-hidden border-2 border-gold/20">
-                    <img alt="Film Director" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0HT17O34W1KpOLpib2sejHV30-JyjlOA8TbFIer_WkTeU8-WDkTOQpiS2Ja-swcELTmlIFxUeWXv1TRbOU1cZJuTzLx6sO4RSqEbeL6s8bnCWZJJ406-XzSExrlYUjvdAL47uTy7-iSIef6xWiKjT1ATS7LAmdnPLwKwMqznWRD01VosgEhDT1NSNZqU2qJnju-xTaDqybGG0TfUQJSFsztQpcTJkXnqSmKCwqWW-Au6cgdOwrqIgSwrDOt1_MoovQOrHyX9AnB4" />
+                    <div className="relative w-full h-full"> <Image alt="Film Director" layout="fill" objectFit="cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0HT17O34W1KpOLpib2sejHV30-JyjlOA8TbFIer_WkTeU8-WDkTOQpiS2Ja-swcELTmlIFxUeWXv1TRbOU1cZJuTzLx6sO4RSqEbeL6s8bnCWZJJ406-XzSExrlYUjvdAL47uTy7-iSIef6xWiKjT1ATS7LAmdnPLwKwMqznWRD01VosgEhDT1NSNZqU2qJnju-xTaDqybGG0TfUQJSFsztQpcTJkXnqSmKCwqWW-Au6cgdOwrqIgSwrDOt1_MoovQOrHyX9AnB4" /> </div>
                   </div>
                   <div>
                     <h4 className="font-bold text-lg">Chidi Nwosu</h4>
@@ -205,7 +206,7 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-slate-300 text-lg leading-relaxed italic">
-                  "Their post-production suite is top-tier. For cinematic sound design and color grading, Deos Record is my first choice every single time."
+                  &quot;Their post-production suite is top-tier. For cinematic sound design and color grading, Deos Record is my first choice every single time.&quot;
                 </p>
               </div>
             </div>

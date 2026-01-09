@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useTransition } from "react";
 import { submitContact } from "../actions/contact";
 import Footer from "../../components/Footer";
@@ -24,7 +25,7 @@ export default function ContactPage() {
                 <div className="flex items-center gap-4 text-slate-900 dark:text-white">
                     <Link href="/" className="flex items-center gap-2">
                         <div className="h-10 w-10 relative rounded-full overflow-hidden">
-                            <img src="/logo.jpg" alt="Deos Record" className="object-cover w-full h-full" />
+                            <Image src="/logo.jpg" alt="Deos Record" layout="fill" objectFit="cover" />
                         </div>
                         <span className="text-lg font-bold">Deos Record</span>
                     </Link>
@@ -38,7 +39,7 @@ export default function ContactPage() {
             <main className="flex-1 flex max-w-4xl mx-auto w-full p-10">
                 <div className="w-full">
                     <h1 className="text-4xl font-black mb-4 dark:text-white">Contact Us</h1>
-                    <p className="text-slate-500 mb-8">Got a project in mind? Let's talk.</p>
+                    <p className="text-slate-500 mb-8">Got a project in mind? Let&apos;s talk.</p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                         <div className="space-y-4 text-slate-900 dark:text-white">

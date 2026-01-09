@@ -1,5 +1,6 @@
 
 import Link from "next/link";
+import Image from "next/image";
 import Footer from "../../components/Footer";
 
 export default function PricingPage() {
@@ -9,7 +10,7 @@ export default function PricingPage() {
             <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#483f23] px-10 py-3 bg-background-light dark:bg-background-dark">
                 <div className="flex items-center gap-4">
                     <div className="h-10 w-10 relative rounded-full overflow-hidden">
-                        <img src="/logo.jpg" alt="Deos Record" className="object-cover w-full h-full" />
+                        <Image src="/logo.jpg" alt="Deos Record" layout="fill" objectFit="cover" />
                     </div>
                     <h2 className="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Deos Record</h2>
                 </div>
@@ -38,7 +39,7 @@ export default function PricingPage() {
                                         Packages &amp; Pricing
                                     </h1>
                                     <p className="text-slate-300 text-sm font-normal leading-relaxed @[480px]:text-lg">
-                                        Elevate your sound and vision with Abuja's premier multi-media production studio. Choose a professional plan tailored to your creative journey.
+                                        Elevate your sound and vision with Abuja&apos;s premier multi-media production studio. Choose a professional plan tailored to your creative journey.
                                     </p>
                                 </div>
                                 <Link href="/services" className="relative z-10 flex min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-[#221e11] text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-all">

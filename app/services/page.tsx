@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Footer from "../../components/Footer";
 
 const audioServices = [
@@ -62,7 +63,7 @@ export default function ServicesPage() {
                 <div className="flex items-center gap-4 text-slate-900 dark:text-white">
                     <Link href="/" className="flex items-center gap-2">
                         <div className="h-10 w-10 relative rounded-full overflow-hidden">
-                            <img src="/logo.jpg" alt="Deos Record" className="object-cover w-full h-full" />
+                            <Image src="/logo.jpg" alt="Deos Record" layout="fill" objectFit="cover" />
                         </div>
                         <span className="text-lg font-bold">Deos Record</span>
                     </Link>
@@ -86,7 +87,7 @@ export default function ServicesPage() {
                     <h1 className="text-4xl md:text-5xl font-black mb-6 text-slate-900 dark:text-white">Our Expertise</h1>
                     <p className="text-slate-600 dark:text-[#c9bb92] text-lg leading-relaxed">
                         We offer a comprehensive suite of multimedia services designed to take your project from concept to reality.
-                        Whether it's audio engineering or visual storytelling, we deliver excellence.
+                        Whether it&apos;s audio engineering or visual storytelling, we deliver excellence.
                     </p>
                 </div>
 
@@ -148,7 +149,7 @@ export default function ServicesPage() {
 
                     <div className="relative z-10 max-w-2xl mx-auto space-y-6">
                         <h2 className="text-3xl md:text-4xl font-black text-white">Need a Custom Package?</h2>
-                        <p className="text-slate-400 text-lg">We understand that every project is unique. Let's discuss your specific requirements and create a tailored solution for you.</p>
+                        <p className="text-slate-400 text-lg">We understand that every project is unique. Let&apos;s discuss your specific requirements and create a tailored solution for you.</p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                             <Link href="/contact" className="px-8 py-4 rounded-xl bg-white text-slate-900 font-bold hover:bg-slate-100 transition-colors">Contact Support</Link>
                             <Link href="/booking" className="px-8 py-4 rounded-xl bg-primary text-background-dark font-bold hover:scale-105 transition-transform">Book a Session</Link>

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import Footer from "../../components/Footer";
 import { useState, useTransition } from "react";
 import { bookSession } from "../actions/bookSession";
@@ -31,7 +32,7 @@ export default function BookingPage() {
             <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#483f23] px-10 py-3 bg-background-light dark:bg-background-dark sticky top-0 z-50">
                 <div className="flex items-center gap-4 text-slate-900 dark:text-white">
                     <div className="h-10 w-10 relative rounded-full overflow-hidden">
-                        <img src="/logo.jpg" alt="Deos Record" className="object-cover w-full h-full" />
+                        <Image src="/logo.jpg" alt="Deos Record" layout="fill" objectFit="cover" />
                     </div>
                     <h2 className="text-lg font-bold leading-tight tracking-[-0.015em]">Deos Record</h2>
                 </div>
