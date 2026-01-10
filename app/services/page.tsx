@@ -1,74 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Footer from "../../components/Footer";
-
-const serviceCategories = [
-    {
-        category: "Vocals & Training Services",
-        icon: "school",
-        items: [
-            { title: "Voice Training/Coaching (Basic)", price: "₦50,000", desc: "Foundation vocal techniques" },
-            { title: "Voice Training/Coaching (Advanced)", price: "₦150,000", desc: "Professional coaching (2 sessions/week)" },
-            { title: "Instrument Learning (Basic)", price: "₦70,000", desc: "Per instrument" },
-            { title: "Instrument Learning (Advanced)", price: "₦200,000", desc: "Advanced mastery (2 sessions/week)" },
-            { title: "Music Production Learning (Basic)", price: "₦500,000", desc: "Weekend program" },
-            { title: "Music Production Learning (Advanced)", price: "₦1,500,000", desc: "Full professional course" }
-        ]
-    },
-    {
-        category: "Podcast Services",
-        icon: "podcasts",
-        items: [
-            { title: "Studio Rental (Video Podcast)", price: "₦75,000/hr", desc: "Full setup included" },
-            { title: "Full Video Podcast Production", price: "₦100,000", desc: "30–60 mins episode" },
-            { title: "5-Episode Video Package", price: "₦450,000", desc: "Bundle deal" },
-            { title: "12-Episode Video Package", price: "₦900,000", desc: "Season bundle" },
-            { title: "Audio Podcast (1hr)", price: "₦150,000", desc: "Recording & Editing (₦100k without edit)" },
-            { title: "Audio Podcast (30mins)", price: "₦100,000", desc: "Recording & Editing (₦70k without edit)" }
-        ]
-    },
-    {
-        category: "Audio Production",
-        icon: "graphic_eq",
-        items: [
-            { title: "Full Track Production", price: "₦150,000", desc: "Beat, Recording, Mixing & Mastering" },
-            { title: "Jingle/Voice-over", price: "₦100,000", desc: "Per piece" },
-            { title: "Album Production", price: "₦1,100,000", desc: "10 Tracks package" },
-            { title: "Audio Covers", price: "₦70,000", desc: "Recording & Mix" }
-        ]
-    },
-    {
-        category: "Video Production",
-        icon: "videocam",
-        items: [
-            { title: "Music Video (Indoor)", price: "₦500,000", desc: "Without styling (₦1M with styling)" },
-            { title: "Music Video (Outdoor)", price: "₦1,000,000", desc: "Without styling (₦1.5M with styling)" },
-            { title: "Advert/Jingles Video", price: "₦150,000", desc: "Professional commercial" },
-            { title: "Video Covers", price: "₦100,000", desc: "Music/Spoken Word" },
-            { title: "Documentary", price: "₦1,000,000", desc: "Full production" },
-            { title: "Movie Production", price: "Min ₦2,500,000", desc: "Without directing" }
-        ]
-    },
-    {
-        category: "Studio & Event Hiring",
-        icon: "calendar_today",
-        items: [
-            { title: "Full Session (6hrs)", price: "₦80,000", desc: "Studio lockout" },
-            { title: "Half Session (3hrs)", price: "₦45,000", desc: "Mini session" },
-            { title: "Red Carpet Coverage", price: "₦400,000", desc: "Crew, branding, editing" },
-            { title: "Event Coverage", price: "₦1,200,000", desc: "Wedding/Birthday (Audio & Visual)" }
-        ]
-    },
-    {
-        category: "Additional Services",
-        icon: "add_circle",
-        items: [
-            { title: "Podcast/Interview Setup", price: "₦50,000", desc: "Per session" },
-            { title: "Live & Digital Recordings", price: "₦300,000", desc: "Location & Post-production" },
-            { title: "Promotional Content", price: "₦250,000", desc: "Content creation" }
-        ]
-    }
-];
+import { serviceCategories } from "../data/services";
 
 export default function ServicesPage() {
     return (

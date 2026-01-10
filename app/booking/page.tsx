@@ -6,6 +6,7 @@ import Footer from "../../components/Footer";
 import { useState, useTransition } from "react";
 import { bookSession } from "../actions/bookSession";
 import { useRouter } from "next/navigation";
+import { serviceCategories, teamMembers } from "../data/services";
 
 export default function BookingPage() {
     const router = useRouter();
