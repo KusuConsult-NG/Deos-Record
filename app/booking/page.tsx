@@ -8,6 +8,8 @@ import { bookSession } from "../actions/bookSession";
 import { useRouter } from "next/navigation";
 import { serviceCategories, teamMembers } from "../data/services";
 
+import { usePaystackPayment } from 'react-paystack';
+
 export default function BookingPage() {
     const router = useRouter();
     const [isPending, startTransition] = useTransition();
@@ -16,6 +18,11 @@ export default function BookingPage() {
     const [activeCategory, setActiveCategory] = useState("Vocals & Training Services");
     const [selectedServiceId, setSelectedServiceId] = useState("");
     const [selectedStaffId, setSelectedStaffId] = useState(teamMembers[0]?.name || "Tunde Deos");
+
+    // User Details State
+    const [clientName, setClientName] = useState("");
+    const [clientEmail, setClientEmail] = useState("");
+    const [clientPhone, setClientPhone] = useState("");
 
     // Date/Time State
     const [selectedDate, setSelectedDate] = useState("");
@@ -64,12 +71,25 @@ export default function BookingPage() {
     const allServices = serviceCategories.flatMap(c => c.items);
     const selectedService = allServices.find(s => s.id === selectedServiceId) || allServices[0];
 
-    const handleBooking = async () => {
-        if (!selectedDate || !selectedTime) {
-            alert("Please select a date and time for your session.");
-            return;
-        }
+    // Paystack Configuration
+    const amountInKobo = parseInt(selectedService.price.replace(/[^0-9]/g, ''), 10) * 100;
 
+    const config = {
+        reference: (new Date()).getTime().toString(),
+        email: clientEmail,
+        amount: amountInKobo,
+        publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || 'pk_test_0000000000000000000000000000000000000000', // Uses placeholder if env missing
+        metadata: {
+            custom_fields: [
+                { display_name: "Service", variable_name: "service", value: selectedService.title },
+                { display_name: "Client Name", variable_name: "client_name", value: clientName }
+            ]
+        }
+    };
+
+    const initializePayment = usePaystackPayment(config);
+
+    const onSuccess = (reference: any) => {
         startTransition(async () => {
             const formData = new FormData();
             formData.append("serviceId", selectedService.id);
@@ -79,24 +99,51 @@ export default function BookingPage() {
             formData.append("date", selectedDate);
             formData.append("time", selectedTime);
 
+            // Append User Details
+            formData.append("clientName", clientName);
+            formData.append("clientEmail", clientEmail);
+            formData.append("clientPhone", clientPhone);
+            formData.append("paymentReference", reference.reference);
+
             const result = await bookSession(null, formData);
             if (result.success) {
                 router.push(`/confirmation?id=${result.bookingId}`);
             } else {
-                alert(result.message || "Booking failed. Please try again.");
+                alert(result.message || "Booking failed. Save your receipt reference: " + reference.reference);
             }
         });
     };
 
+    const onClose = () => {
+        alert("Payment canceled. Please complete payment to book your session.");
+    };
+
+    const handleBooking = (e: any) => {
+        e.preventDefault(); // Prevent duplicated submissions if triggered by form
+
+        if (!selectedDate || !selectedTime) {
+            alert("Please select a date and time for your session.");
+            return;
+        }
+        if (!clientName || !clientEmail || !clientPhone) {
+            alert("Please fill in your contact details (Name, Email, Phone).");
+            return;
+        }
+
+        initializePayment(onSuccess, onClose);
+    };
+
     return (
         <div className="flex-1 flex flex-col min-h-screen">
-            {/* Top Navigation Bar */}
+            {/* ... Header (kept same) ... */}
             <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#483f23] px-10 py-3 bg-background-light dark:bg-background-dark sticky top-0 z-50">
                 <div className="flex items-center gap-4 text-slate-900 dark:text-white">
-                    <div className="h-10 w-10 relative rounded-full overflow-hidden">
-                        <Image src="/logo.jpg" alt="Deos Record" layout="fill" objectFit="cover" />
-                    </div>
-                    <h2 className="text-lg font-bold leading-tight tracking-[-0.015em]">Deos Record</h2>
+                    <Link href="/" className="flex items-center gap-2">
+                        <div className="h-10 w-10 relative rounded-full overflow-hidden">
+                            <Image src="/logo.jpg" alt="Deos Record" layout="fill" objectFit="cover" />
+                        </div>
+                        <h2 className="text-lg font-bold leading-tight tracking-[-0.015em]">Deos Record</h2>
+                    </Link>
                 </div>
                 <div className="flex flex-1 justify-end gap-8 items-center">
                     <nav className="hidden md:flex items-center gap-9">
@@ -107,25 +154,25 @@ export default function BookingPage() {
                     </nav>
                 </div>
             </header>
+
             <main className="flex-1 max-w-7xl mx-auto w-full px-4 md:px-10 py-8">
-                {/* Page Heading */}
+                {/* ... Page Heading ... */}
                 <div className="flex flex-wrap justify-between items-end gap-4 mb-8">
                     <div className="flex flex-col gap-2">
                         <h1 className="text-4xl font-black leading-tight tracking-[-0.033em] text-slate-900 dark:text-white">Book Your Session</h1>
                         <p className="text-slate-600 dark:text-[#c9bb92] text-lg font-normal">Real-time availability.</p>
                     </div>
                 </div>
-                {/* Booking Interface Grid */}
+
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                    {/* Left Column: Services & Staff */}
+                    {/* Left Column */}
                     <div className="lg:col-span-6 space-y-8">
-                        {/* Section: Select Service */}
+                        {/* 1. Select Service (Kept same) */}
                         <section className="bg-white dark:bg-[#332d19] rounded-xl border border-slate-200 dark:border-[#675a32] overflow-hidden flex flex-col max-h-[600px]">
                             <h2 className="text-lg font-bold px-6 py-4 border-b border-slate-200 dark:border-[#675a32] flex items-center gap-2 shrink-0">
                                 <span className="material-symbols-outlined text-primary">layers</span>
                                 1. Select Service
                             </h2>
-                            {/* Category Filter */}
                             <div className="flex border-b border-slate-100 dark:border-[#483f23] px-2 gap-2 overflow-x-auto shrink-0 z-10 bg-white dark:bg-[#332d19]">
                                 {serviceCategories.map((cat, i) => (
                                     <button
@@ -142,7 +189,6 @@ export default function BookingPage() {
                                     </button>
                                 ))}
                             </div>
-                            {/* Service List */}
                             <div className="p-4 space-y-3 overflow-y-auto min-h-0">
                                 {serviceCategories.find(c => c.category === activeCategory)?.items.map((item) => (
                                     <label
@@ -174,7 +220,8 @@ export default function BookingPage() {
                                 ))}
                             </div>
                         </section>
-                        {/* Section: Select Staff */}
+
+                        {/* 2. Choose Specialist (Kept same) */}
                         <section className="bg-white dark:bg-[#332d19] rounded-xl border border-slate-200 dark:border-[#675a32] overflow-hidden">
                             <h2 className="text-lg font-bold px-6 py-4 border-b border-slate-200 dark:border-[#675a32] flex items-center gap-2">
                                 <span className="material-symbols-outlined text-primary">person</span>
@@ -197,10 +244,53 @@ export default function BookingPage() {
                                 ))}
                             </div>
                         </section>
+
+                        {/* 3. User Details (NEW) */}
+                        <section className="bg-white dark:bg-[#332d19] rounded-xl border border-slate-200 dark:border-[#675a32] overflow-hidden">
+                            <h2 className="text-lg font-bold px-6 py-4 border-b border-slate-200 dark:border-[#675a32] flex items-center gap-2">
+                                <span className="material-symbols-outlined text-primary">contact_mail</span>
+                                3. Contact Details
+                            </h2>
+                            <div className="p-6 space-y-4">
+                                <div>
+                                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-[#c9bb92] mb-1">Full Name</label>
+                                    <input
+                                        type="text"
+                                        value={clientName}
+                                        onChange={(e) => setClientName(e.target.value)}
+                                        placeholder="Enter your full name"
+                                        className="w-full p-3 rounded-lg border border-slate-200 dark:border-[#5a5035] bg-white dark:bg-[#221e11] text-slate-900 dark:text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                                    />
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-[#c9bb92] mb-1">Email Address</label>
+                                        <input
+                                            type="email"
+                                            value={clientEmail}
+                                            onChange={(e) => setClientEmail(e.target.value)}
+                                            placeholder="you@email.com"
+                                            className="w-full p-3 rounded-lg border border-slate-200 dark:border-[#5a5035] bg-white dark:bg-[#221e11] text-slate-900 dark:text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-[#c9bb92] mb-1">Phone Number</label>
+                                        <input
+                                            type="tel"
+                                            value={clientPhone}
+                                            onChange={(e) => setClientPhone(e.target.value)}
+                                            placeholder="080 1234 5678"
+                                            className="w-full p-3 rounded-lg border border-slate-200 dark:border-[#5a5035] bg-white dark:bg-[#221e11] text-slate-900 dark:text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     </div>
-                    {/* Right Column: Calendar & Summary */}
+
+                    {/* Right Column */}
                     <div className="lg:col-span-6 space-y-6">
-                        {/* Calendar Section */}
+                        {/* Calendar (Kept same) */}
                         <div className="bg-white dark:bg-[#332d19] rounded-xl border border-slate-200 dark:border-[#675a32] overflow-hidden p-6">
                             <div className="flex items-center justify-between mb-4">
                                 <h2 className="text-xl font-bold flex items-center gap-2">
@@ -208,7 +298,6 @@ export default function BookingPage() {
                                     Select Date & Time
                                 </h2>
                             </div>
-                            {/* Date Scroll */}
                             <div className="flex gap-2 text-center mb-6 overflow-x-auto pb-4 items-center">
                                 {dates.map((d, i) => (
                                     <button
@@ -222,7 +311,6 @@ export default function BookingPage() {
                                     </button>
                                 ))}
                             </div>
-                            {/* Time Slots Grid */}
                             <h3 className="text-sm font-bold text-slate-400 dark:text-[#c9bb92] uppercase tracking-wider mb-4">Available Slots</h3>
                             <div className="grid grid-cols-4 gap-2">
                                 {timeSlots.map((time, i) => (
@@ -236,39 +324,52 @@ export default function BookingPage() {
                                 ))}
                             </div>
                         </div>
-                        {/* Booking Summary Sticky-style */}
+
+                        {/* Booking Summary */}
                         <div className="bg-[#2a2514] dark:bg-[#1a160d] border border-[#eebd2b]/30 rounded-xl p-6 shadow-2xl sticky top-24">
                             <div className="flex flex-col gap-6">
                                 <div className="space-y-1">
                                     <h3 className="text-white font-bold text-lg">Booking Summary</h3>
-                                    <p className="text-[#c9bb92] text-sm">
+                                    <p className="text-[#c9bb92] text-sm md:text-base">
                                         <span className="text-white font-semibold">{selectedService.title}</span> with <span className="text-white font-semibold">{selectedStaffId}</span>
                                     </p>
-                                    <div className="flex items-center gap-4 pt-4 border-t border-white/10 mt-4">
-                                        <div className="flex items-center gap-2 text-xs text-primary bg-primary/10 px-3 py-1.5 rounded-full border border-primary/20">
+                                    <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-white/10 mt-4">
+                                        <div className="flex items-center gap-2 text-xs text-primary bg-primary/10 px-3 py-1.5 rounded-full border border-primary/20 whitespace-nowrap">
                                             <span className="material-symbols-outlined text-[16px]">calendar_today</span> {selectedDate || "Select Date"}
                                         </div>
-                                        <div className="flex items-center gap-2 text-xs text-primary bg-primary/10 px-3 py-1.5 rounded-full border border-primary/20">
+                                        <div className="flex items-center gap-2 text-xs text-primary bg-primary/10 px-3 py-1.5 rounded-full border border-primary/20 whitespace-nowrap">
                                             <span className="material-symbols-outlined text-[16px]">schedule</span> {selectedTime || "Select Time"}
                                         </div>
                                     </div>
+                                    {clientName && (
+                                        <div className="pt-2 text-xs text-[#c9bb92]/60">
+                                            Booking for: <span className="text-[#c9bb92] font-semibold">{clientName}</span>
+                                        </div>
+                                    )}
                                 </div>
-                                <div className="flex items-center justify-between gap-6 pt-2">
-                                    <div>
-                                        <p className="text-[#c9bb92] text-xs uppercase font-bold tracking-widest">Total Amount</p>
-                                        <p className="text-white text-3xl font-black">{selectedService.price}</p>
+                                <div className="flex flex-col gap-4 pt-2">
+                                    <div className="flex justify-between items-end">
+                                        <div>
+                                            <p className="text-[#c9bb92] text-xs uppercase font-bold tracking-widest">Total Amount</p>
+                                            <p className="text-white text-3xl font-black">{selectedService.price}</p>
+                                        </div>
                                     </div>
                                     <button
                                         onClick={handleBooking}
-                                        disabled={isPending || !selectedDate || !selectedTime}
-                                        className="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-14 px-6 bg-primary text-background-dark text-base font-black transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/20 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                                        disabled={isPending || !selectedDate || !selectedTime || !clientName || !clientEmail || !clientPhone}
+                                        className="flex w-full cursor-pointer items-center justify-center rounded-lg h-14 px-6 bg-primary text-background-dark text-base font-black transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/20 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed uppercase tracking-wide gap-2"
                                     >
-                                        {isPending ? "Booking..." : "Confirm"}
+                                        <span className="material-symbols-outlined">lock</span>
+                                        {isPending ? "Processing..." : "Pay & Confirm"}
                                     </button>
+                                    <div className="flex justify-center">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Paystack_Logo.png" alt="Secured by Paystack" className="h-4 opacity-50 grayscale hover:grayscale-0 transition-all" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        {/* Footer Help */}
+
+                        {/* Footer Help (Kept same) */}
                         <div className="flex items-center justify-center gap-8 py-4 opacity-50">
                             <div className="flex items-center gap-2 text-xs">
                                 <span className="material-symbols-outlined text-[18px]">verified_user</span> Secure Checkout

@@ -10,13 +10,19 @@ export async function bookSession(prevState: any, formData: FormData) {
     const time = formData.get("time") as string;
     const price = formData.get("price") as string;
 
-    if (!serviceId || !date || !time) {
-        console.error("Booking failed: Missing fields", { serviceId, date, time });
-        return { success: false, message: "Missing required fields: Service, Date, or Time." };
+    // User Details & Payment
+    const clientName = formData.get("clientName") as string;
+    const clientEmail = formData.get("clientEmail") as string;
+    const clientPhone = formData.get("clientPhone") as string;
+    const paymentReference = formData.get("paymentReference") as string;
+
+    if (!serviceId || !date || !time || !clientName || !clientEmail || !paymentReference) {
+        console.error("Booking failed: Missing fields", { serviceId, date, time, clientName, clientEmail, paymentReference });
+        return { success: false, message: "Missing required fields: Service, Date, Time, Client Name, Client Email, or Payment Reference." };
     }
 
     try {
-        console.log("Attempting to save booking to Firestore:", { serviceName, staff, date, time });
+        // 1. Save Booking
         const docRef = await db.collection("bookings").add({
             serviceName,
             serviceId,
@@ -24,10 +30,33 @@ export async function bookSession(prevState: any, formData: FormData) {
             date,
             time,
             price,
-            status: "pending",
+            clientName,
+            clientEmail,
+            clientPhone,
+            paymentReference,
+            paymentStatus: "paid", // Assumes success from client-side callback
+            status: "confirmed", // Auto-confirm if paid
             createdAt: new Date().toISOString(),
         });
         console.log("Booking successfully saved with ID:", docRef.id);
+
+        // 2. Trigger Email (via Firestore Extension)
+        await db.collection("mail").add({
+            to: clientEmail,
+            message: {
+                subject: "Booking Confirmed - Deos Record",
+                html: `
+                    <h1>Booking Confirmed!</h1>
+                    <p>Hi ${clientName},</p>
+                    <p>Your session for <strong>${serviceName}</strong> with <strong>${staff}</strong> has been confirmed.</p>
+                    <p><strong>Date:</strong> ${date}</p>
+                    <p><strong>Time:</strong> ${time}</p>
+                    <p><strong>Reference:</strong> ${paymentReference}</p>
+                    <br/>
+                    <p>See you at the studio!</p>
+                `
+            }
+        });
 
         return {
             success: true,
