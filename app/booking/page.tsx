@@ -34,7 +34,26 @@ export default function BookingPage() {
     });
 
     // Generate Time Slots
-    const timeSlots = ["09:00", "10:30", "12:00", "13:30", "15:00", "16:30", "18:00", "19:30"];
+    const allTimeSlots = ["09:00", "10:30", "12:00", "13:30", "15:00", "16:30", "18:00", "19:30"];
+
+    // Filter Time Slots for Today
+    const timeSlots = allTimeSlots.filter(time => {
+        if (!selectedDate) return true;
+        const today = new Date();
+        const selected = new Date(selectedDate);
+
+        // If not today, show all
+        if (selected.getDate() !== today.getDate() || selected.getMonth() !== today.getMonth()) {
+            return true;
+        }
+
+        // If today, check time
+        const [hours, minutes] = time.split(':').map(Number);
+        const slotTime = new Date(today);
+        slotTime.setHours(hours, minutes, 0);
+
+        return slotTime > new Date();
+    });
 
     // Set Default Date on Mount
     if (!selectedDate && dates[0]) {
@@ -111,7 +130,12 @@ export default function BookingPage() {
                                 {serviceCategories.map((cat, i) => (
                                     <button
                                         key={i}
-                                        onClick={() => setActiveCategory(cat.category)}
+                                        onClick={() => {
+                                            setActiveCategory(cat.category);
+                                            if (cat.items.length > 0) {
+                                                setSelectedServiceId(cat.items[0].id);
+                                            }
+                                        }}
                                         className={`flex items-center gap-2 px-4 py-3 border-b-2 text-sm font-bold whitespace-nowrap transition-colors ${activeCategory === cat.category ? "border-primary text-primary" : "border-transparent text-slate-500 hover:text-primary dark:text-[#c9bb92]"}`}
                                     >
                                         <span className="material-symbols-outlined text-[20px]">{cat.icon}</span> {cat.category.split(" ")[0]}
