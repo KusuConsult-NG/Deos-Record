@@ -130,6 +130,7 @@ export default function BookingPage() {
             return;
         }
 
+        // @ts-ignore
         initializePayment(onSuccess, onClose);
     };
 
