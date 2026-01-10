@@ -11,18 +11,60 @@ import { serviceCategories, teamMembers } from "../data/services";
 export default function BookingPage() {
     const router = useRouter();
     const [isPending, startTransition] = useTransition();
-    const [selectedService, setSelectedService] = useState("Standard Podcast Session");
-    const [selectedStaff, setSelectedStaff] = useState("Musa Bello");
+
+    // State
+    const [activeCategory, setActiveCategory] = useState("Vocals & Training Services");
+    const [selectedServiceId, setSelectedServiceId] = useState("");
+    const [selectedStaffId, setSelectedStaffId] = useState(teamMembers[0]?.name || "Tunde Deos");
+
+    // Date/Time State
+    const [selectedDate, setSelectedDate] = useState("");
+    const [selectedTime, setSelectedTime] = useState("");
+
+    // Generate Dates (Today + 13 days)
+    const dates = Array.from({ length: 14 }).map((_, i) => {
+        const d = new Date();
+        d.setDate(d.getDate() + i);
+        return {
+            dateStr: d.toISOString().split('T')[0],
+            dayName: d.toLocaleDateString('en-US', { weekday: 'short' }),
+            dayNum: d.getDate(),
+            month: d.toLocaleDateString('en-US', { month: 'short' })
+        };
+    });
+
+    // Generate Time Slots
+    const timeSlots = ["09:00", "10:30", "12:00", "13:30", "15:00", "16:30", "18:00", "19:30"];
+
+    // Set Default Date on Mount
+    if (!selectedDate && dates[0]) {
+        setSelectedDate(dates[0].dateStr);
+    }
+
+    // Find Selected Service Object
+    const allServices = serviceCategories.flatMap(c => c.items);
+    const selectedService = allServices.find(s => s.id === selectedServiceId) || allServices[0];
 
     const handleBooking = async () => {
+        if (!selectedDate || !selectedTime) {
+            alert("Please select a date and time for your session.");
+            return;
+        }
+
         startTransition(async () => {
             const formData = new FormData();
-            formData.append("service", selectedService);
-            formData.append("staff", selectedStaff);
+            formData.append("serviceId", selectedService.id);
+            formData.append("serviceName", selectedService.title);
+            formData.append("price", selectedService.price);
+            formData.append("staff", selectedStaffId);
+            formData.append("date", selectedDate);
+            formData.append("time", selectedTime);
 
             const result = await bookSession(null, formData);
             if (result.success) {
                 router.push("/confirmation");
+            } else {
+                alert(result.message || "Booking failed. Please try again.");
             }
         });
     };
@@ -44,9 +86,6 @@ export default function BookingPage() {
                         <Link className="text-sm font-medium leading-normal hover:text-primary transition-colors" href="/portfolio">Portfolio</Link>
                         <Link className="text-sm font-medium leading-normal hover:text-primary transition-colors" href="/about">About</Link>
                     </nav>
-                    <button className="flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-background-dark text-sm font-bold transition-transform active:scale-95">
-                        Sign In
-                    </button>
                 </div>
             </header>
             <main className="flex-1 max-w-7xl mx-auto w-full px-4 md:px-10 py-8">
@@ -54,57 +93,57 @@ export default function BookingPage() {
                 <div className="flex flex-wrap justify-between items-end gap-4 mb-8">
                     <div className="flex flex-col gap-2">
                         <h1 className="text-4xl font-black leading-tight tracking-[-0.033em] text-slate-900 dark:text-white">Book Your Session</h1>
-                        <p className="text-slate-600 dark:text-[#c9bb92] text-lg font-normal">Professional recording spaces in the heart of Abuja.</p>
-                    </div>
-                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 text-green-500 text-sm font-bold border border-green-500/20">
-                        <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                        </span>
-                        Studio Available Today
+                        <p className="text-slate-600 dark:text-[#c9bb92] text-lg font-normal">Real-time availability.</p>
                     </div>
                 </div>
                 {/* Booking Interface Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                     {/* Left Column: Services & Staff */}
-                    <div className="lg:col-span-5 space-y-8">
+                    <div className="lg:col-span-6 space-y-8">
                         {/* Section: Select Service */}
-                        <section className="bg-white dark:bg-[#332d19] rounded-xl border border-slate-200 dark:border-[#675a32] overflow-hidden">
-                            <h2 className="text-lg font-bold px-6 py-4 border-b border-slate-200 dark:border-[#675a32] flex items-center gap-2">
+                        <section className="bg-white dark:bg-[#332d19] rounded-xl border border-slate-200 dark:border-[#675a32] overflow-hidden flex flex-col max-h-[600px]">
+                            <h2 className="text-lg font-bold px-6 py-4 border-b border-slate-200 dark:border-[#675a32] flex items-center gap-2 shrink-0">
                                 <span className="material-symbols-outlined text-primary">layers</span>
                                 1. Select Service
                             </h2>
-                            {/* Tabs for Category Filter - simplified to show all popular for now */}
-                            <div className="p-4 space-y-3">
-                                {[
-                                    { id: "Standard Podcast Session", name: "Standard Podcast Session", detail: "Audio Only · 1 Hour", price: "₦25,000", icon: "mic" },
-                                    { id: "Video Podcast Upgrade", name: "Video Podcast", detail: "Multicam Video · 1 Hour", price: "₦75,000", icon: "video_call" },
-                                    { id: "Music Production", name: "Music Production", detail: "Beat & Recording", price: "₦150,000", icon: "music_note" },
-                                    { id: "Studio Session", name: "Studio Session (Audio)", detail: "Recording Only · 1 Hour", price: "₦15,000", icon: "graphic_eq" }
-                                ].map((service) => (
+                            {/* Category Filter */}
+                            <div className="flex border-b border-slate-100 dark:border-[#483f23] px-2 gap-2 overflow-x-auto shrink-0 z-10 bg-white dark:bg-[#332d19]">
+                                {serviceCategories.map((cat, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => setActiveCategory(cat.category)}
+                                        className={`flex items-center gap-2 px-4 py-3 border-b-2 text-sm font-bold whitespace-nowrap transition-colors ${activeCategory === cat.category ? "border-primary text-primary" : "border-transparent text-slate-500 hover:text-primary dark:text-[#c9bb92]"}`}
+                                    >
+                                        <span className="material-symbols-outlined text-[20px]">{cat.icon}</span> {cat.category.split(" ")[0]}
+                                    </button>
+                                ))}
+                            </div>
+                            {/* Service List */}
+                            <div className="p-4 space-y-3 overflow-y-auto min-h-0">
+                                {serviceCategories.find(c => c.category === activeCategory)?.items.map((item) => (
                                     <label
-                                        key={service.id}
-                                        className={`flex items-center justify-between p-4 rounded-lg border-2 cursor-pointer transition-all ${selectedService === service.id ? "border-primary bg-primary/5" : "border-slate-200 dark:border-[#675a32] hover:bg-slate-50 dark:hover:bg-white/5"}`}
-                                        onClick={() => setSelectedService(service.id)}
+                                        key={item.id}
+                                        className={`flex items-center justify-between p-4 rounded-lg border-2 cursor-pointer transition-all ${selectedService.id === item.id ? "border-primary bg-primary/5" : "border-slate-200 dark:border-[#675a32] hover:bg-slate-50 dark:hover:bg-white/5"}`}
+                                        onClick={() => setSelectedServiceId(item.id)}
                                     >
                                         <div className="flex items-center gap-4">
-                                            <div className={`size-10 rounded flex items-center justify-center ${selectedService === service.id ? "bg-primary/20 text-primary" : "bg-slate-100 dark:bg-white/10 text-slate-500 dark:text-[#c9bb92]"}`}>
-                                                <span className="material-symbols-outlined">{service.icon}</span>
+                                            <div className={`size-10 rounded flex items-center justify-center shrink-0 ${selectedService.id === item.id ? "bg-primary/20 text-primary" : "bg-slate-100 dark:bg-white/10 text-slate-500 dark:text-[#c9bb92]"}`}>
+                                                <span className="material-symbols-outlined">radio_button_checked</span>
                                             </div>
                                             <div>
-                                                <p className="font-bold text-sm text-slate-900 dark:text-white">{service.name}</p>
-                                                <p className="text-xs text-slate-500 dark:text-[#c9bb92]">{service.detail}</p>
+                                                <p className="font-bold text-sm text-slate-900 dark:text-white">{item.title}</p>
+                                                <p className="text-xs text-slate-500 dark:text-[#c9bb92]">{item.desc}</p>
                                             </div>
                                         </div>
-                                        <div className="text-right">
-                                            <p className={`font-bold ${selectedService === service.id ? "text-primary" : "text-slate-900 dark:text-white"}`}>{service.price}</p>
+                                        <div className="text-right shrink-0 pl-2">
+                                            <p className={`font-bold ${selectedService.id === item.id ? "text-primary" : "text-slate-900 dark:text-white"}`}>{item.price}</p>
                                             <input
                                                 readOnly
-                                                checked={selectedService === service.id}
-                                                className="text-primary focus:ring-primary border-slate-300 hidden"
+                                                checked={selectedService.id === item.id}
+                                                className="hidden"
                                                 name="service"
                                                 type="radio"
-                                                value={service.id}
+                                                value={item.id}
                                             />
                                         </div>
                                     </label>
@@ -115,115 +154,92 @@ export default function BookingPage() {
                         <section className="bg-white dark:bg-[#332d19] rounded-xl border border-slate-200 dark:border-[#675a32] overflow-hidden">
                             <h2 className="text-lg font-bold px-6 py-4 border-b border-slate-200 dark:border-[#675a32] flex items-center gap-2">
                                 <span className="material-symbols-outlined text-primary">person</span>
-                                2. Choose Engineer
+                                2. Choose Specialist
                             </h2>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4">
-                                {/* Staff 1 */}
-                                <div
-                                    onClick={() => setSelectedStaff("Musa Bello")}
-                                    className={`flex flex-col gap-3 rounded-lg border-2 p-4 relative cursor-pointer transition-all ${selectedStaff === "Musa Bello" ? "border-primary bg-primary/5 ring-1 ring-primary/20" : "border-slate-200 dark:border-[#675a32] bg-transparent hover:border-primary/50"}`}
-                                >
-                                    <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-12 shrink-0 border-2 border-primary" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuAc_COzIl4xngUoti_7DrRT9Xprn1lHMl0RdtB7T5hwQRv6IV2HTnGVwWGpKYijMua_wpZXB2KZki7R75emC-D0Tqo00ERRcVRcG8wpmWBz_b7gbb3Ky2ML6QlMZp-D2LfSFoZl92ojRX-UpexFHQpWpPlqt7rpj1t6HN0YMUyES1Clttbn-AAL-aV_qdA1eOmkRvkGaRptBs_Bk6BjfASg3Ha7OgtWeMn-cLO7gEM3YH7tIigUwI5yjz-Gg7a-rUs_JfMuMkr21mg")' }}></div>
-                                    <div className="flex flex-col gap-0.5">
-                                        <h3 className="text-slate-900 dark:text-white text-base font-bold">Musa Bello</h3>
-                                        <p className="text-slate-500 dark:text-[#c9bb92] text-xs">Lead Audio Engineer</p>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 max-h-[300px] overflow-y-auto">
+                                {teamMembers.map((member, i) => (
+                                    <div
+                                        key={i}
+                                        onClick={() => setSelectedStaffId(member.name)}
+                                        className={`flex items-center gap-3 rounded-lg border-2 p-3 cursor-pointer transition-all ${selectedStaffId === member.name ? "border-primary bg-primary/5 ring-1 ring-primary/20" : "border-slate-200 dark:border-[#675a32] bg-transparent hover:border-primary/50"}`}
+                                    >
+                                        <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0 border border-slate-200 dark:border-white/20" style={{ backgroundImage: `url("${member.avatar}")` }}></div>
+                                        <div className="flex flex-col gap-0.5 min-w-0">
+                                            <h3 className="text-slate-900 dark:text-white text-sm font-bold truncate">{member.name}</h3>
+                                            <p className="text-slate-500 dark:text-[#c9bb92] text-xs truncate">{member.role}</p>
+                                        </div>
+                                        {selectedStaffId === member.name && <span className="ml-auto text-primary material-symbols-outlined text-base">check_circle</span>}
                                     </div>
-                                    {selectedStaff === "Musa Bello" && <span className="absolute top-4 right-4 text-primary material-symbols-outlined">check_circle</span>}
-                                </div>
-                                {/* Staff 2 */}
-                                <div
-                                    onClick={() => setSelectedStaff("Sarah Obi")}
-                                    className={`flex flex-col gap-3 rounded-lg border-2 p-4 relative cursor-pointer transition-all ${selectedStaff === "Sarah Obi" ? "border-primary bg-primary/5 ring-1 ring-primary/20" : "border-slate-200 dark:border-[#675a32] bg-transparent hover:border-primary/50"}`}
-                                >
-                                    <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-12 shrink-0 opacity-80 group-hover:opacity-100" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDDBhnA8W4UlN3kO6aPSaf-RjYL0HECExiTMUVnr60bJ39i09longP4D2YD1qw_X-MslEbITKQ4A509LsI-AzYSdTfBhVY9-QR8IW4ojRW86CD3MUfaUmFjldobo_jtry6hXsft6ySz1McFiyYJyipKDbo-KwhxnU0GdyHBYSZqanjOuc_7Kmhx6B35QcqX6sMMMRqpNl0BcZCTylvbWm5iBurPj-ce6jLV_rHj_hsgbJdYRr-V0fYqDx69_9rE9j4q08A620TUkqU")' }}></div>
-                                    <div className="flex flex-col gap-0.5">
-                                        <h3 className="text-slate-900 dark:text-white text-base font-bold">Sarah Obi</h3>
-                                        <p className="text-slate-500 dark:text-[#c9bb92] text-xs">Creative Director</p>
-                                    </div>
-                                    {selectedStaff === "Sarah Obi" && <span className="absolute top-4 right-4 text-primary material-symbols-outlined">check_circle</span>}
-                                </div>
+                                ))}
                             </div>
                         </section>
                     </div>
                     {/* Right Column: Calendar & Summary */}
-                    <div className="lg:col-span-7 space-y-6">
+                    <div className="lg:col-span-6 space-y-6">
                         {/* Calendar Section */}
                         <div className="bg-white dark:bg-[#332d19] rounded-xl border border-slate-200 dark:border-[#675a32] overflow-hidden p-6">
-                            <div className="flex items-center justify-between mb-6">
+                            <div className="flex items-center justify-between mb-4">
                                 <h2 className="text-xl font-bold flex items-center gap-2">
                                     <span className="material-symbols-outlined text-primary">calendar_month</span>
-                                    October 2023
+                                    Select Date & Time
                                 </h2>
-                                <div className="flex gap-2">
-                                    <button className="p-2 hover:bg-slate-100 dark:hover:bg-white/10 rounded-lg text-slate-500 dark:text-white">
-                                        <span className="material-symbols-outlined">chevron_left</span>
-                                    </button>
-                                    <button className="p-2 hover:bg-slate-100 dark:hover:bg-white/10 rounded-lg text-slate-500 dark:text-white">
-                                        <span className="material-symbols-outlined">chevron_right</span>
-                                    </button>
-                                </div>
                             </div>
-                            {/* Calendar Grid */}
-                            <div className="grid grid-cols-7 gap-1 text-center mb-6">
-                                {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day, i) => (
-                                    <div key={i} className="text-[10px] uppercase font-black text-slate-400 dark:text-[#675a32] pb-2">{day}</div>
-                                ))}
-                                {/* Filler */}
-                                <div className="h-10 text-slate-300 dark:text-[#483f23] flex items-center justify-center text-sm">28</div>
-                                <div className="h-10 text-slate-300 dark:text-[#483f23] flex items-center justify-center text-sm">29</div>
-                                <div className="h-10 text-slate-300 dark:text-[#483f23] flex items-center justify-center text-sm">30</div>
-                                {[1, 2, 3, 4, 5, "...", 23].map((day, i) => (
-                                    <div key={i} className="h-10 text-slate-900 dark:text-white flex items-center justify-center text-sm font-medium hover:bg-primary/20 rounded cursor-pointer">{day}</div>
-                                ))}
-                                <div className="h-10 bg-primary text-background-dark flex items-center justify-center text-sm font-bold rounded-lg shadow-lg shadow-primary/30 cursor-pointer">24</div>
-                                {[25, 26, 27].map((day, i) => (
-                                    <div key={i} className="h-10 text-slate-900 dark:text-white flex items-center justify-center text-sm font-medium hover:bg-primary/20 rounded cursor-pointer">{day}</div>
+                            {/* Date Scroll */}
+                            <div className="flex gap-2 text-center mb-6 overflow-x-auto pb-4 items-center">
+                                {dates.map((d, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => setSelectedDate(d.dateStr)}
+                                        className={`flex flex-col min-w-[60px] cursor-pointer rounded-lg border p-2 transition-all ${selectedDate === d.dateStr ? "bg-primary border-primary text-background-dark shadow-lg shadow-primary/30" : "bg-white dark:bg-white/5 border-slate-200 dark:border-white/10 hover:border-primary/50 text-slate-900 dark:text-white"}`}
+                                    >
+                                        <span className={`text-[10px] uppercase font-bold ${selectedDate === d.dateStr ? "opacity-70" : "opacity-50"}`}>{d.month}</span>
+                                        <span className="text-xl font-bold my-1">{d.dayNum}</span>
+                                        <span className={`text-[10px] uppercase font-bold ${selectedDate === d.dateStr ? "opacity-70" : "opacity-50"}`}>{d.dayName}</span>
+                                    </button>
                                 ))}
                             </div>
                             {/* Time Slots Grid */}
-                            <h3 className="text-sm font-bold text-slate-400 dark:text-[#c9bb92] uppercase tracking-wider mb-4">Available Slots for Oct 24</h3>
-                            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
-                                <button className="py-2 border border-slate-200 dark:border-[#675a32] rounded text-sm hover:border-primary hover:text-primary transition-all">09:00 AM</button>
-                                <button className="py-2 border border-slate-200 dark:border-[#675a32] rounded text-sm hover:border-primary hover:text-primary transition-all">10:30 AM</button>
-                                <button className="py-2 border-2 border-primary bg-primary/10 text-primary font-bold rounded text-sm">02:00 PM</button>
-                                <button className="py-2 border border-slate-200 dark:border-[#675a32] rounded text-sm opacity-30 cursor-not-allowed">03:30 PM</button>
-                                <button className="py-2 border border-slate-200 dark:border-[#675a32] rounded text-sm hover:border-primary hover:text-primary transition-all">05:00 PM</button>
-                                <button className="py-2 border border-slate-200 dark:border-[#675a32] rounded text-sm hover:border-primary hover:text-primary transition-all">06:30 PM</button>
+                            <h3 className="text-sm font-bold text-slate-400 dark:text-[#c9bb92] uppercase tracking-wider mb-4">Available Slots</h3>
+                            <div className="grid grid-cols-4 gap-2">
+                                {timeSlots.map((time, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => setSelectedTime(time)}
+                                        className={`py-2 border-2 rounded text-sm font-bold transition-all ${selectedTime === time ? "border-primary bg-primary/10 text-primary" : "border-slate-200 dark:border-[#675a32] hover:border-primary hover:text-primary text-slate-600 dark:text-slate-300"}`}
+                                    >
+                                        {time}
+                                    </button>
+                                ))}
                             </div>
                         </div>
                         {/* Booking Summary Sticky-style */}
-                        <div className="bg-[#2a2514] dark:bg-[#1a160d] border border-[#eebd2b]/30 rounded-xl p-6 shadow-2xl">
-                            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                        <div className="bg-[#2a2514] dark:bg-[#1a160d] border border-[#eebd2b]/30 rounded-xl p-6 shadow-2xl sticky top-24">
+                            <div className="flex flex-col gap-6">
                                 <div className="space-y-1">
                                     <h3 className="text-white font-bold text-lg">Booking Summary</h3>
                                     <p className="text-[#c9bb92] text-sm">
-                                        <span className="text-white font-semibold">{selectedService}</span> with <span className="text-white font-semibold">{selectedStaff}</span>
+                                        <span className="text-white font-semibold">{selectedService.title}</span> with <span className="text-white font-semibold">{selectedStaffId}</span>
                                     </p>
-                                    <div className="flex items-center gap-4 pt-1">
-                                        <div className="flex items-center gap-1 text-xs text-primary">
-                                            <span className="material-symbols-outlined text-[16px]">calendar_today</span> Oct 24th, 2023
+                                    <div className="flex items-center gap-4 pt-4 border-t border-white/10 mt-4">
+                                        <div className="flex items-center gap-2 text-xs text-primary bg-primary/10 px-3 py-1.5 rounded-full border border-primary/20">
+                                            <span className="material-symbols-outlined text-[16px]">calendar_today</span> {selectedDate || "Select Date"}
                                         </div>
-                                        <div className="flex items-center gap-1 text-xs text-primary">
-                                            <span className="material-symbols-outlined text-[16px]">schedule</span> 02:00 PM (1 Hr)
+                                        <div className="flex items-center gap-2 text-xs text-primary bg-primary/10 px-3 py-1.5 rounded-full border border-primary/20">
+                                            <span className="material-symbols-outlined text-[16px]">schedule</span> {selectedTime || "Select Time"}
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-6">
-                                    <div className="text-right">
+                                <div className="flex items-center justify-between gap-6 pt-2">
+                                    <div>
                                         <p className="text-[#c9bb92] text-xs uppercase font-bold tracking-widest">Total Amount</p>
-                                        <p className="text-white text-3xl font-black">
-                                            {selectedService === "Standard Podcast Session" ? "₦25,000" :
-                                                selectedService === "Video Podcast Upgrade" ? "₦75,000" :
-                                                    selectedService === "Music Production" ? "₦150,000" :
-                                                        selectedService === "Studio Session" ? "₦15,000" : "₦25,000"}
-                                        </p>
+                                        <p className="text-white text-3xl font-black">{selectedService.price}</p>
                                     </div>
                                     <button
                                         onClick={handleBooking}
-                                        disabled={isPending}
-                                        className="flex min-w-[180px] cursor-pointer items-center justify-center rounded-lg h-14 px-6 bg-primary text-background-dark text-base font-black transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/20 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                                        disabled={isPending || !selectedDate || !selectedTime}
+                                        className="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-14 px-6 bg-primary text-background-dark text-base font-black transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/20 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
-                                        {isPending ? "Booking..." : "Confirm Booking"}
+                                        {isPending ? "Booking..." : "Confirm"}
                                     </button>
                                 </div>
                             </div>
@@ -235,9 +251,6 @@ export default function BookingPage() {
                             </div>
                             <div className="flex items-center gap-2 text-xs">
                                 <span className="material-symbols-outlined text-[18px]">history</span> 24h Rescheduling
-                            </div>
-                            <div className="flex items-center gap-2 text-xs">
-                                <span className="material-symbols-outlined text-[18px]">support_agent</span> 24/7 Support
                             </div>
                         </div>
                     </div>
