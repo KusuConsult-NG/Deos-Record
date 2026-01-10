@@ -73,69 +73,41 @@ export default function BookingPage() {
                                 <span className="material-symbols-outlined text-primary">layers</span>
                                 1. Select Service
                             </h2>
-                            {/* Tabs for Categories */}
-                            <div className="flex border-b border-slate-100 dark:border-[#483f23] px-2 gap-2 overflow-x-auto">
-                                <button className="flex items-center gap-2 px-4 py-3 border-b-2 border-primary text-primary text-sm font-bold">
-                                    <span className="material-symbols-outlined text-[20px]">mic</span> Podcast
-                                </button>
-                                <button className="flex items-center gap-2 px-4 py-3 border-b-2 border-transparent text-slate-500 dark:text-[#c9bb92] text-sm font-bold hover:text-primary">
-                                    <span className="material-symbols-outlined text-[20px]">music_note</span> Music
-                                </button>
-                                <button className="flex items-center gap-2 px-4 py-3 border-b-2 border-transparent text-slate-500 dark:text-[#c9bb92] text-sm font-bold hover:text-primary">
-                                    <span className="material-symbols-outlined text-[20px]">videocam</span> Video
-                                </button>
-                            </div>
+                            {/* Tabs for Category Filter - simplified to show all popular for now */}
                             <div className="p-4 space-y-3">
-                                <label
-                                    className={`flex items-center justify-between p-4 rounded-lg border-2 cursor-pointer transition-all ${selectedService === "Standard Podcast Session" ? "border-primary bg-primary/5" : "border-transparent hover:bg-slate-50 dark:hover:bg-white/5"}`}
-                                    onClick={() => setSelectedService("Standard Podcast Session")}
-                                >
-                                    <div className="flex items-center gap-4">
-                                        <div className={`size-10 rounded flex items-center justify-center ${selectedService === "Standard Podcast Session" ? "bg-primary/20 text-primary" : "bg-slate-100 dark:bg-white/10 text-slate-500 dark:text-[#c9bb92]"}`}>
-                                            <span className="material-symbols-outlined">podcasts</span>
+                                {[
+                                    { id: "Standard Podcast Session", name: "Standard Podcast Session", detail: "Audio Only · 1 Hour", price: "₦25,000", icon: "mic" },
+                                    { id: "Video Podcast Upgrade", name: "Video Podcast", detail: "Multicam Video · 1 Hour", price: "₦75,000", icon: "video_call" },
+                                    { id: "Music Production", name: "Music Production", detail: "Beat & Recording", price: "₦150,000", icon: "music_note" },
+                                    { id: "Studio Session", name: "Studio Session (Audio)", detail: "Recording Only · 1 Hour", price: "₦15,000", icon: "graphic_eq" }
+                                ].map((service) => (
+                                    <label
+                                        key={service.id}
+                                        className={`flex items-center justify-between p-4 rounded-lg border-2 cursor-pointer transition-all ${selectedService === service.id ? "border-primary bg-primary/5" : "border-slate-200 dark:border-[#675a32] hover:bg-slate-50 dark:hover:bg-white/5"}`}
+                                        onClick={() => setSelectedService(service.id)}
+                                    >
+                                        <div className="flex items-center gap-4">
+                                            <div className={`size-10 rounded flex items-center justify-center ${selectedService === service.id ? "bg-primary/20 text-primary" : "bg-slate-100 dark:bg-white/10 text-slate-500 dark:text-[#c9bb92]"}`}>
+                                                <span className="material-symbols-outlined">{service.icon}</span>
+                                            </div>
+                                            <div>
+                                                <p className="font-bold text-sm text-slate-900 dark:text-white">{service.name}</p>
+                                                <p className="text-xs text-slate-500 dark:text-[#c9bb92]">{service.detail}</p>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <p className="font-bold text-sm text-slate-900 dark:text-white">Standard Podcast Session</p>
-                                            <p className="text-xs text-slate-500 dark:text-[#c9bb92]">Up to 4 participants · 1 Hour</p>
+                                        <div className="text-right">
+                                            <p className={`font-bold ${selectedService === service.id ? "text-primary" : "text-slate-900 dark:text-white"}`}>{service.price}</p>
+                                            <input
+                                                readOnly
+                                                checked={selectedService === service.id}
+                                                className="text-primary focus:ring-primary border-slate-300 hidden"
+                                                name="service"
+                                                type="radio"
+                                                value={service.id}
+                                            />
                                         </div>
-                                    </div>
-                                    <div className="text-right">
-                                        <p className={`font-bold ${selectedService === "Standard Podcast Session" ? "text-primary" : "text-slate-900 dark:text-white"}`}>₦25,000</p>
-                                        <input
-                                            readOnly
-                                            checked={selectedService === "Standard Podcast Session"}
-                                            className="text-primary focus:ring-primary border-slate-300"
-                                            name="service"
-                                            type="radio"
-                                            value="Standard Podcast Session"
-                                        />
-                                    </div>
-                                </label>
-                                <label
-                                    className={`flex items-center justify-between p-4 rounded-lg border-2 cursor-pointer transition-all ${selectedService === "Video Podcast Upgrade" ? "border-primary bg-primary/5" : "border-slate-200 dark:border-[#675a32] hover:bg-slate-50 dark:hover:bg-white/5"}`}
-                                    onClick={() => setSelectedService("Video Podcast Upgrade")}
-                                >
-                                    <div className="flex items-center gap-4">
-                                        <div className={`size-10 rounded flex items-center justify-center ${selectedService === "Video Podcast Upgrade" ? "bg-primary/20 text-primary" : "bg-slate-100 dark:bg-white/10 text-slate-500 dark:text-[#c9bb92]"}`}>
-                                            <span className="material-symbols-outlined">video_call</span>
-                                        </div>
-                                        <div>
-                                            <p className="font-bold text-sm text-slate-900 dark:text-white">Video Podcast Upgrade</p>
-                                            <p className="text-xs text-slate-500 dark:text-[#c9bb92]">Multicam setup · 1.5 Hours</p>
-                                        </div>
-                                    </div>
-                                    <div className="text-right">
-                                        <p className={`font-bold ${selectedService === "Video Podcast Upgrade" ? "text-primary" : "text-slate-900 dark:text-white"}`}>₦45,000</p>
-                                        <input
-                                            readOnly
-                                            checked={selectedService === "Video Podcast Upgrade"}
-                                            className="text-primary focus:ring-primary border-slate-300"
-                                            name="service"
-                                            type="radio"
-                                            value="Video Podcast Upgrade"
-                                        />
-                                    </div>
-                                </label>
+                                    </label>
+                                ))}
                             </div>
                         </section>
                         {/* Section: Select Staff */}
@@ -238,7 +210,12 @@ export default function BookingPage() {
                                 <div className="flex items-center gap-6">
                                     <div className="text-right">
                                         <p className="text-[#c9bb92] text-xs uppercase font-bold tracking-widest">Total Amount</p>
-                                        <p className="text-white text-3xl font-black">{selectedService === "Standard Podcast Session" ? "₦25,000" : "₦45,000"}</p>
+                                        <p className="text-white text-3xl font-black">
+                                            {selectedService === "Standard Podcast Session" ? "₦25,000" :
+                                                selectedService === "Video Podcast Upgrade" ? "₦75,000" :
+                                                    selectedService === "Music Production" ? "₦150,000" :
+                                                        selectedService === "Studio Session" ? "₦15,000" : "₦25,000"}
+                                        </p>
                                     </div>
                                     <button
                                         onClick={handleBooking}
