@@ -65,11 +65,13 @@ export default function PricingPage() {
         <div className="flex-1 flex flex-col min-h-screen">
             {/* Top Navigation Bar */}
             <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#483f23] px-10 py-3 bg-background-light dark:bg-background-dark sticky top-0 z-50">
-                <div className="flex items-center gap-4">
-                    <div className="h-10 w-10 relative rounded-full overflow-hidden">
-                        <Image src="/logo.jpg" alt="Deos Record" layout="fill" objectFit="cover" />
-                    </div>
-                    <h2 className="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Deos Record</h2>
+                <div className="flex items-center gap-4 text-slate-900 dark:text-white">
+                    <Link href="/" className="flex items-center gap-2">
+                        <div className="h-10 w-10 relative rounded-full overflow-hidden">
+                            <Image src="/logo.jpg" alt="Deos Record" layout="fill" objectFit="cover" />
+                        </div>
+                        <h2 className="text-lg font-bold leading-tight tracking-[-0.015em]">Deos Record</h2>
+                    </Link>
                 </div>
                 <div className="flex flex-1 justify-end gap-8">
                     <nav className="flex items-center gap-9">
