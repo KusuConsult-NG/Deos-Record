@@ -81,7 +81,7 @@ export default function BookingPage() {
 
             const result = await bookSession(null, formData);
             if (result.success) {
-                router.push("/confirmation");
+                router.push(`/confirmation?id=${result.bookingId}`);
             } else {
                 alert(result.message || "Booking failed. Please try again.");
             }

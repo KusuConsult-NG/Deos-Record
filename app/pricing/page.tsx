@@ -73,10 +73,9 @@ export default function PricingPage() {
                 </div>
                 <div className="flex flex-1 justify-end gap-8">
                     <nav className="flex items-center gap-9">
-                        <Link className="text-slate-700 dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="/">Home</Link>
+                        <Link className="text-slate-700 dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="/team">Studio</Link>
                         <Link className="text-slate-700 dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="/services">Services</Link>
-                        <Link className="text-primary text-sm font-bold leading-normal" href="/pricing">Pricing</Link>
-                        <Link className="text-slate-700 dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="/portfolio">Gallery</Link>
+                        <Link className="text-slate-700 dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="/portfolio">Portfolio</Link>
                         <Link className="text-slate-700 dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="/about">About</Link>
                     </nav>
                     <Link href="/booking" className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-[#221e11] text-sm font-bold leading-normal tracking-[0.015em]">

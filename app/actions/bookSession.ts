@@ -17,7 +17,7 @@ export async function bookSession(prevState: any, formData: FormData) {
 
     try {
         console.log("Attempting to save booking to Firestore:", { serviceName, staff, date, time });
-        await db.collection("bookings").add({
+        const docRef = await db.collection("bookings").add({
             serviceName,
             serviceId,
             staff,
@@ -27,11 +27,12 @@ export async function bookSession(prevState: any, formData: FormData) {
             status: "pending",
             createdAt: new Date().toISOString(),
         });
-        console.log("Booking successfully saved.");
+        console.log("Booking successfully saved with ID:", docRef.id);
 
         return {
             success: true,
-            message: "Booking confirmed!"
+            message: "Booking confirmed!",
+            bookingId: docRef.id
         };
     } catch (error) {
         console.error("Booking error:", error);
