@@ -20,9 +20,9 @@ export default function AboutPage() {
                     <Link className="text-sm font-medium hover:text-primary transition-colors" href="/portfolio">Portfolio</Link>
                     <Link className="text-sm text-primary font-bold" href="/about">About</Link>
                 </nav>
-                <Link href="/contact">
-                    <button className="hidden md:flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-5 border border-primary text-primary text-sm font-bold transition-transform active:scale-95 hover:bg-primary hover:text-background-dark">
-                        Contact Us
+                <Link href="/booking">
+                    <button className="hidden md:flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-background-dark text-sm font-bold transition-transform active:scale-95">
+                        Book Now
                     </button>
                 </Link>
             </header>

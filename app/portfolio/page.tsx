@@ -7,24 +7,26 @@ export default function PortfolioPage() {
     return (
         <div className="flex-1 flex flex-col min-h-screen">
             {/* TopNavBar */}
-            <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#484223] px-10 py-5 mx-auto w-full max-w-[1200px]">
-                <div className="flex items-center gap-4 text-white">
-                    <div className="h-10 w-10 relative rounded-full overflow-hidden">
-                        <Image src="/logo.jpg" alt="Deos Record" layout="fill" objectFit="cover" />
-                    </div>
-                    <h2 className="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Deos Record</h2>
-                </div>
-                <div className="flex flex-1 justify-end gap-8">
-                    <div className="flex items-center gap-9">
-                        <Link className="text-slate-700 dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="/portfolio">Work</Link>
-                        <Link className="text-slate-700 dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="/services">Services</Link>
-                        <Link className="text-slate-700 dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="/team">Studio</Link>
-                        <Link className="text-slate-700 dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="/contact">Contact</Link>
-                    </div>
-                    <Link href="/booking" className="flex min-w-[120px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-primary text-[#222011] text-sm font-bold leading-normal tracking-[0.015em] transition-transform active:scale-95">
-                        <span className="truncate">Book a Session</span>
+            <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#483f23] px-10 py-3 bg-background-light dark:bg-background-dark sticky top-0 z-50">
+                <div className="flex items-center gap-4 text-slate-900 dark:text-white">
+                    <Link href="/" className="flex items-center gap-2">
+                        <div className="h-10 w-10 relative rounded-full overflow-hidden">
+                            <Image src="/logo.jpg" alt="Deos Record" layout="fill" objectFit="cover" />
+                        </div>
+                        <span className="text-lg font-bold">Deos Record</span>
                     </Link>
                 </div>
+                <nav className="hidden md:flex items-center gap-9">
+                    <Link className="text-sm font-medium hover:text-primary transition-colors" href="/team">Studio</Link>
+                    <Link className="text-sm font-medium hover:text-primary transition-colors" href="/services">Services</Link>
+                    <Link className="text-sm text-primary font-bold" href="/portfolio">Portfolio</Link>
+                    <Link className="text-sm font-medium hover:text-primary transition-colors" href="/about">About</Link>
+                </nav>
+                <Link href="/booking">
+                    <button className="hidden md:flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-background-dark text-sm font-bold transition-transform active:scale-95">
+                        Book Now
+                    </button>
+                </Link>
             </header>
             <main className="flex-1 w-full max-w-[1200px] mx-auto px-4 md:px-10 py-10">
                 {/* PageHeading */}

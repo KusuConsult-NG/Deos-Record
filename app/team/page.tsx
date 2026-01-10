@@ -7,24 +7,26 @@ export default function TeamPage() {
     return (
         <div className="flex-1 flex flex-col min-h-screen">
             {/* Navigation */}
-            <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 px-6 md:px-20 lg:px-40 py-4 bg-background-light dark:bg-background-dark/95 sticky top-0 z-50 backdrop-blur-sm">
-                <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 relative rounded-full overflow-hidden">
-                        <Image src="/logo.jpg" alt="Deos Record" layout="fill" objectFit="cover" />
-                    </div>
-                    <h2 className="text-slate-900 dark:text-white text-xl font-black leading-tight tracking-tight">DEOS RECORD</h2>
-                </div>
-                <div className="hidden md:flex flex-1 justify-end gap-8">
-                    <nav className="flex items-center gap-8">
-                        <Link className="text-slate-600 dark:text-slate-300 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-wider" href="/">Home</Link>
-                        <Link className="text-slate-600 dark:text-slate-300 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-wider" href="/services">Services</Link>
-                        <Link className="text-primary text-sm font-semibold uppercase tracking-wider border-b-2 border-primary" href="/team">Team</Link>
-                        <Link className="text-slate-600 dark:text-slate-300 hover:text-primary transition-colors text-sm font-semibold uppercase tracking-wider" href="/contact">Contact</Link>
-                    </nav>
-                    <Link href="/booking" className="flex min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-background-dark text-sm font-bold uppercase tracking-wider hover:brightness-110 transition-all">
-                        Book Now
+            <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#483f23] px-10 py-3 bg-background-light dark:bg-background-dark sticky top-0 z-50">
+                <div className="flex items-center gap-4 text-slate-900 dark:text-white">
+                    <Link href="/" className="flex items-center gap-2">
+                        <div className="h-10 w-10 relative rounded-full overflow-hidden">
+                            <Image src="/logo.jpg" alt="Deos Record" layout="fill" objectFit="cover" />
+                        </div>
+                        <span className="text-lg font-bold">Deos Record</span>
                     </Link>
                 </div>
+                <nav className="hidden md:flex items-center gap-9">
+                    <Link className="text-sm text-primary font-bold" href="/team">Studio</Link>
+                    <Link className="text-sm font-medium hover:text-primary transition-colors" href="/services">Services</Link>
+                    <Link className="text-sm font-medium hover:text-primary transition-colors" href="/portfolio">Portfolio</Link>
+                    <Link className="text-sm font-medium hover:text-primary transition-colors" href="/about">About</Link>
+                </nav>
+                <Link href="/booking">
+                    <button className="hidden md:flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-background-dark text-sm font-bold transition-transform active:scale-95">
+                        Book Now
+                    </button>
+                </Link>
             </header>
             <main className="flex-1">
                 {/* Page Heading */}

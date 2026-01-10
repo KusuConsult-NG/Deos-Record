@@ -48,7 +48,7 @@ export default async function ConfirmationPage({ searchParams }: { searchParams:
 
                 <h1 className="text-3xl font-black text-slate-900 dark:text-white mb-2">Booking Confirmed!</h1>
                 <p className="text-slate-500 dark:text-[#c9bb92] text-sm mb-8">
-                    Your session has been successfully scheduled.
+                    Your session has been successfully scheduled. We look forward to seeing you!
                 </p>
 
                 {/* Booking Details Card */}
