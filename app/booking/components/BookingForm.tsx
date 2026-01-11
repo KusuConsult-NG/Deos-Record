@@ -126,12 +126,38 @@ export default function BookingForm() {
     const handleBooking = (e: any) => {
         e.preventDefault();
 
-        if (!selectedDate || !selectedTime) {
-            alert("Please select a date and time for your session.");
+        // 1. Validation & Focus Logic
+        if (!selectedServiceId) {
+            document.getElementById("serviceSection")?.scrollIntoView({ behavior: "smooth" });
+            alert("Please select a service.");
             return;
         }
-        if (!clientName || !clientEmail || !clientPhone) {
-            alert("Please fill in your contact details (Name, Email, Phone).");
+        if (!selectedDate) {
+            document.getElementById("calendarSection")?.scrollIntoView({ behavior: "smooth" });
+            alert("Please select a date.");
+            return;
+        }
+        if (!selectedTime) {
+            document.getElementById("timeSection")?.scrollIntoView({ behavior: "smooth" });
+            alert("Please select a time.");
+            return;
+        }
+        if (!clientName) {
+            const el = document.getElementById("clientName");
+            el?.scrollIntoView({ behavior: "smooth", block: "center" });
+            el?.focus();
+            return; // Don't alert, just focus
+        }
+        if (!clientEmail) {
+            const el = document.getElementById("clientEmail");
+            el?.scrollIntoView({ behavior: "smooth", block: "center" });
+            el?.focus();
+            return;
+        }
+        if (!clientPhone) {
+            const el = document.getElementById("clientPhone");
+            el?.scrollIntoView({ behavior: "smooth", block: "center" });
+            el?.focus();
             return;
         }
 
@@ -139,25 +165,23 @@ export default function BookingForm() {
         initializePayment(onSuccess, onClose);
     };
 
-    // Validation Logic for UI Feedback
-    const getButtonState = () => {
-        if (isPending) return { disabled: true, text: "Processing..." };
-        if (!selectedDate) return { disabled: true, text: "Select Date" };
-        if (!selectedTime) return { disabled: true, text: "Select Time" };
-        if (!clientName) return { disabled: true, text: "Enter Name" };
-        if (!clientEmail) return { disabled: true, text: "Enter Email" };
-        if (!clientPhone) return { disabled: true, text: "Enter Phone" };
-        return { disabled: false, text: "Pay & Confirm" };
+    // UI Text Logic
+    const getButtonText = () => {
+        if (isPending) return "Processing...";
+        if (!selectedDate) return "Select Date";
+        if (!selectedTime) return "Select Time";
+        if (!clientName) return "Enter Name";
+        if (!clientEmail) return "Enter Email";
+        if (!clientPhone) return "Enter Phone";
+        return "Pay & Confirm";
     };
-
-    const buttonState = getButtonState();
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Column */}
             <div className="lg:col-span-6 space-y-8">
                 {/* 1. Select Service */}
-                <section className="bg-white dark:bg-[#332d19] rounded-xl border border-slate-200 dark:border-[#675a32] overflow-hidden flex flex-col max-h-[600px]">
+                <section id="serviceSection" className="bg-white dark:bg-[#332d19] rounded-xl border border-slate-200 dark:border-[#675a32] overflow-hidden flex flex-col max-h-[600px]">
                     <h2 className="text-lg font-bold px-6 py-4 border-b border-slate-200 dark:border-[#675a32] flex items-center gap-2 shrink-0">
                         <span className="material-symbols-outlined text-primary">layers</span>
                         1. Select Service
@@ -244,6 +268,7 @@ export default function BookingForm() {
                         <div>
                             <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-[#c9bb92] mb-1">Full Name</label>
                             <input
+                                id="clientName"
                                 type="text"
                                 value={clientName}
                                 onChange={(e) => setClientName(e.target.value)}
@@ -255,6 +280,7 @@ export default function BookingForm() {
                             <div>
                                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-[#c9bb92] mb-1">Email Address</label>
                                 <input
+                                    id="clientEmail"
                                     type="email"
                                     value={clientEmail}
                                     onChange={(e) => setClientEmail(e.target.value)}
@@ -265,6 +291,7 @@ export default function BookingForm() {
                             <div>
                                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-[#c9bb92] mb-1">Phone Number</label>
                                 <input
+                                    id="clientPhone"
                                     type="tel"
                                     value={clientPhone}
                                     onChange={(e) => setClientPhone(e.target.value)}
@@ -280,7 +307,7 @@ export default function BookingForm() {
             {/* Right Column */}
             <div className="lg:col-span-6 space-y-6">
                 {/* Calendar */}
-                <div className="bg-white dark:bg-[#332d19] rounded-xl border border-slate-200 dark:border-[#675a32] overflow-hidden p-6">
+                <div id="calendarSection" className="bg-white dark:bg-[#332d19] rounded-xl border border-slate-200 dark:border-[#675a32] overflow-hidden p-6">
                     <div className="flex items-center justify-between mb-4">
                         <h2 className="text-xl font-bold flex items-center gap-2">
                             <span className="material-symbols-outlined text-primary">calendar_month</span>
@@ -301,7 +328,7 @@ export default function BookingForm() {
                         ))}
                     </div>
                     <h3 className="text-sm font-bold text-slate-400 dark:text-[#c9bb92] uppercase tracking-wider mb-4">Available Slots</h3>
-                    <div className="grid grid-cols-4 gap-2">
+                    <div id="timeSection" className="grid grid-cols-4 gap-2">
                         {timeSlots.map((time, i) => (
                             <button
                                 key={i}
@@ -345,11 +372,11 @@ export default function BookingForm() {
                             </div>
                             <button
                                 onClick={handleBooking}
-                                disabled={buttonState.disabled}
+                                disabled={isPending}
                                 className="flex w-full cursor-pointer items-center justify-center rounded-lg h-14 px-6 bg-primary text-background-dark text-base font-black transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/20 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed uppercase tracking-wide gap-2"
                             >
                                 <span className="material-symbols-outlined">lock</span>
-                                {buttonState.text}
+                                {getButtonText()}
                             </button>
                             <div className="flex justify-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Paystack_Logo.png" alt="Secured by Paystack" className="h-4 opacity-50 grayscale hover:grayscale-0 transition-all" />
