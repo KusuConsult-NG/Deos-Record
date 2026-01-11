@@ -74,7 +74,7 @@ export default function BookingForm() {
         reference: (new Date()).getTime().toString(),
         email: clientEmail,
         amount: amountInKobo,
-        publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || 'pk_test_0000000000000000000000000000000000000000',
+        publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || 'pk_test_3e87802dae281fbeb004f2b0f741a6e662aba103',
         metadata: {
             custom_fields: [
                 { display_name: "Service", variable_name: "service", value: selectedService.title },
