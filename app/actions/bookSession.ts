@@ -22,32 +22,35 @@ export async function bookSession(prevState: any, formData: FormData) {
     }
 
     try {
-        // 0. Verify Payment with Paystack
-        const paystackSecretKey = process.env.PAYSTACK_SECRET_KEY;
-        if (paystackSecretKey) {
-            const verificationResponse = await fetch(`https://api.paystack.co/transaction/verify/${paymentReference}`, {
-                method: 'GET',
-                headers: {
-                    Authorization: `Bearer ${paystackSecretKey}`
+        // 0. Verify Payment with Paystack (if not paying later)
+        if (paymentReference !== "PAY_LATER") {
+            const paystackSecretKey = process.env.PAYSTACK_SECRET_KEY;
+            if (paystackSecretKey) {
+                const verificationResponse = await fetch(`https://api.paystack.co/transaction/verify/${paymentReference}`, {
+                    method: 'GET',
+                    headers: {
+                        Authorization: `Bearer ${paystackSecretKey}`
+                    }
+                });
+
+                if (!verificationResponse.ok) {
+                    console.error("Paystack API connection failed");
+                    return { success: false, message: "Could not verify payment. Please contact support." };
                 }
-            });
 
-            if (!verificationResponse.ok) {
-                console.error("Paystack API connection failed");
-                return { success: false, message: "Could not verify payment. Please contact support." };
+                const verificationData = await verificationResponse.json();
+                if (!verificationData.status || verificationData.data.status !== "success") {
+                    console.error("Payment verification failed:", verificationData);
+                    return { success: false, message: "Payment verification failed or was not completed." };
+                }
+                console.log("Payment Verified Successfully:", verificationData.data.reference);
+            } else {
+                console.warn("PAYSTACK_SECRET_KEY not found. Skipping server-side verification.");
             }
-
-            const verificationData = await verificationResponse.json();
-            if (!verificationData.status || verificationData.data.status !== "success") {
-                console.error("Payment verification failed:", verificationData);
-                return { success: false, message: "Payment verification failed or was not completed." };
-            }
-            console.log("Payment Verified Successfully:", verificationData.data.reference);
-        } else {
-            console.warn("PAYSTACK_SECRET_KEY not found. Skipping server-side verification.");
         }
 
         // 1. Save Booking
+        const isPayLater = paymentReference === "PAY_LATER";
         const docRef = await db.collection("bookings").add({
             serviceName,
             serviceId,
@@ -59,8 +62,8 @@ export async function bookSession(prevState: any, formData: FormData) {
             clientEmail,
             clientPhone,
             paymentReference,
-            paymentStatus: "paid", // Assumes success from client-side callback
-            status: "confirmed", // Auto-confirm if paid
+            paymentStatus: isPayLater ? "pending" : "paid",
+            status: isPayLater ? "pending_payment" : "confirmed",
             createdAt: new Date().toISOString(),
         });
         console.log("Booking successfully saved with ID:", docRef.id);
