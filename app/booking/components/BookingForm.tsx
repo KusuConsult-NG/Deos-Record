@@ -1,4 +1,4 @@
-import { useState, useTransition, useMemo } from "react";
+import { useState, useTransition, useMemo, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { usePaystackPayment } from 'react-paystack';
 import { bookSession } from "../../actions/bookSession";
@@ -60,6 +60,13 @@ export default function BookingForm() {
     if (!selectedDate && dates[0]) {
         setSelectedDate(dates[0].dateStr);
     }
+
+    // Auto-select first available time slot
+    useEffect(() => {
+        if (!selectedTime && timeSlots.length > 0) {
+            setSelectedTime(timeSlots[0]);
+        }
+    }, [selectedTime, timeSlots, selectedDate]);
 
     // Find Selected Service Object
     const allServices = serviceCategories.flatMap(c => c.items);
