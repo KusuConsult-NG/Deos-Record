@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import { db } from "@/lib/firebase-admin";
+import { getDb } from "@/lib/firebase-admin";
 
 export default async function ConfirmationPage({ searchParams }: { searchParams: { id: string } }) {
     let booking = null;
@@ -8,6 +8,7 @@ export default async function ConfirmationPage({ searchParams }: { searchParams:
 
     if (id) {
         try {
+            const db = getDb();
             const doc = await db.collection("bookings").doc(id).get();
             if (doc.exists) {
                 booking = doc.data();
