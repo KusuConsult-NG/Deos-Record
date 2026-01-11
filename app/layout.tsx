@@ -26,6 +26,9 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Deos Record",
   description: "Abuja's Premier Multi-Media Production Studio",
+  icons: {
+    icon: '/icon.jpg',
+  },
 };
 
 export default function RootLayout({

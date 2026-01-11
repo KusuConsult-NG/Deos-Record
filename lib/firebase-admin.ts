@@ -5,27 +5,42 @@ const projectId = process.env.FIREBASE_PROJECT_ID;
 const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
 const privateKey = process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n");
 
-if (!projectId || !clientEmail || !privateKey) {
-    // Warn but don't crash if env vars are missing during build time
-    console.warn("Missing Firebase Admin credentials in environment variables.");
-}
+const initFirebase = () => {
+    if (!admin.apps.length) {
+        if (!projectId || !clientEmail || !privateKey) {
+            console.error("Missing Firebase Admin credentials. Server-side actions will fail.");
+            return null;
+        }
 
-if (!admin.apps.length) {
-    try {
-        admin.initializeApp({
-            credential: admin.credential.cert({
-                projectId,
-                clientEmail,
-                privateKey,
-            }),
-        });
-        console.log("Firebase Admin Initialized");
-    } catch (error) {
-        console.error("Firebase Admin Initialization Error:", error);
+        try {
+            admin.initializeApp({
+                credential: admin.credential.cert({
+                    projectId,
+                    clientEmail,
+                    privateKey,
+                }),
+            });
+            console.log("Firebase Admin Initialized");
+        } catch (error) {
+            console.error("Firebase Admin Initialization Error:", error);
+            return null;
+        }
     }
-}
+    return admin;
+};
 
-const db = admin.firestore();
-const auth = admin.auth();
+export const getDb = () => {
+    const app = initFirebase();
+    if (!app) {
+        throw new Error("Firebase Admin not initialized. Check server logs for missing credentials.");
+    }
+    return app.firestore();
+};
 
-export { db, auth };
+export const getAuth = () => {
+    const app = initFirebase();
+    if (!app) {
+        throw new Error("Firebase Admin not initialized. Check server logs for missing credentials.");
+    }
+    return app.auth();
+};

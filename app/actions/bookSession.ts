@@ -1,6 +1,6 @@
 "use server";
 
-import { db } from "@/lib/firebase-admin";
+import { getDb } from "@/lib/firebase-admin";
 
 export async function bookSession(prevState: any, formData: FormData) {
     const serviceName = formData.get("serviceName") as string;
@@ -22,6 +22,8 @@ export async function bookSession(prevState: any, formData: FormData) {
     }
 
     try {
+        const db = getDb();
+
         // 0. Verify Payment with Paystack
         const paystackSecretKey = process.env.PAYSTACK_SECRET_KEY;
         if (paystackSecretKey) {
