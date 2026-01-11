@@ -134,20 +134,6 @@ export default function BookingForm() {
         initializePayment(onSuccess, onClose);
     };
 
-    const handlePayLater = (e: any) => {
-        e.preventDefault();
-
-        if (!selectedDate || !selectedTime) {
-            alert("Please select a date and time for your session.");
-            return;
-        }
-        if (!clientName || !clientEmail || !clientPhone) {
-            alert("Please fill in your contact details (Name, Email, Phone).");
-            return;
-        }
-
-        submitBooking("PAY_LATER");
-    };
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -347,14 +333,6 @@ export default function BookingForm() {
                             >
                                 <span className="material-symbols-outlined">lock</span>
                                 {isPending ? "Processing..." : "Pay & Confirm"}
-                            </button>
-                            <button
-                                onClick={handlePayLater}
-                                disabled={isPending || !selectedDate || !selectedTime || !clientName || !clientEmail || !clientPhone}
-                                className="flex w-full cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-transparent border border-white/20 text-white text-sm font-bold transition-all hover:bg-white/10 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed uppercase tracking-wide gap-2"
-                            >
-                                <span className="material-symbols-outlined">payments</span>
-                                Book Now (Pay at Venue)
                             </button>
                             <div className="flex justify-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Paystack_Logo.png" alt="Secured by Paystack" className="h-4 opacity-50 grayscale hover:grayscale-0 transition-all" />
