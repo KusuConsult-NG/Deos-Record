@@ -28,9 +28,14 @@ export default function Footer() {
                     <h4 className="font-bold mb-6 text-slate-900 dark:text-white">Quick Links</h4>
                     <ul className="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
                         <li><Link className="hover:text-primary dark:hover:text-gold transition-colors" href="/">Home</Link></li>
+                        <li><Link className="hover:text-primary dark:hover:text-gold transition-colors" href="/about">About Us</Link></li>
                         <li><Link className="hover:text-primary dark:hover:text-gold transition-colors" href="/services">Studio Services</Link></li>
                         <li><Link className="hover:text-primary dark:hover:text-gold transition-colors" href="/portfolio">Artist Portfolio</Link></li>
+                        <li><Link className="hover:text-primary dark:hover:text-gold transition-colors" href="/pricing">Pricing</Link></li>
                         <li><Link className="hover:text-primary dark:hover:text-gold transition-colors" href="/team">Our Team</Link></li>
+                        <li><Link className="hover:text-primary dark:hover:text-gold transition-colors" href="/blog">Blog</Link></li>
+                        <li><Link className="hover:text-primary dark:hover:text-gold transition-colors" href="/booking">Book a Session</Link></li>
+                        <li><Link className="hover:text-primary dark:hover:text-gold transition-colors" href="/contact">Contact</Link></li>
                     </ul>
                 </div>
                 <div>
@@ -38,15 +43,15 @@ export default function Footer() {
                     <ul className="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
                         <li className="flex items-center gap-3">
                             <span className="material-symbols-outlined text-primary dark:text-gold text-lg">location_on</span>
-                            Wuse II, Abuja, Nigeria
+                            <a href="https://maps.google.com/?q=Wuse+II,+Abuja,+Nigeria" target="_blank" rel="noopener noreferrer" className="hover:text-primary dark:hover:text-gold transition-colors">Wuse II, Abuja, Nigeria</a>
                         </li>
                         <li className="flex items-center gap-3">
                             <span className="material-symbols-outlined text-primary dark:text-gold text-lg">call</span>
-                            +234 800 123 4567
+                            <a href="tel:+2348001234567" className="hover:text-primary dark:hover:text-gold transition-colors">+234 800 123 4567</a>
                         </li>
                         <li className="flex items-center gap-3">
                             <span className="material-symbols-outlined text-primary dark:text-gold text-lg">mail</span>
-                            hello@deosrecord.com
+                            <a href="mailto:hello@deosrecord.com" className="hover:text-primary dark:hover:text-gold transition-colors">hello@deosrecord.com</a>
                         </li>
                     </ul>
                 </div>
