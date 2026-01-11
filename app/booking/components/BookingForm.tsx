@@ -1,6 +1,4 @@
-"use client";
-
-import { useState, useTransition } from "react";
+import { useState, useTransition, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { usePaystackPayment } from 'react-paystack';
 import { bookSession } from "../../actions/bookSession";
@@ -70,7 +68,7 @@ export default function BookingForm() {
     // Paystack Configuration
     const amountInKobo = parseInt(selectedService.price.replace(/[^0-9]/g, ''), 10) * 100;
 
-    const config = {
+    const config = useMemo(() => ({
         reference: (new Date()).getTime().toString(),
         email: clientEmail,
         amount: amountInKobo,
@@ -81,7 +79,7 @@ export default function BookingForm() {
                 { display_name: "Client Name", variable_name: "client_name", value: clientName }
             ]
         }
-    };
+    }), [clientEmail, amountInKobo, selectedService.title, clientName]);
 
     const initializePayment = usePaystackPayment(config);
 
@@ -134,6 +132,18 @@ export default function BookingForm() {
         initializePayment(onSuccess, onClose);
     };
 
+    // Validation Logic for UI Feedback
+    const getButtonState = () => {
+        if (isPending) return { disabled: true, text: "Processing..." };
+        if (!selectedDate) return { disabled: true, text: "Select Date" };
+        if (!selectedTime) return { disabled: true, text: "Select Time" };
+        if (!clientName) return { disabled: true, text: "Enter Name" };
+        if (!clientEmail) return { disabled: true, text: "Enter Email" };
+        if (!clientPhone) return { disabled: true, text: "Enter Phone" };
+        return { disabled: false, text: "Pay & Confirm" };
+    };
+
+    const buttonState = getButtonState();
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -328,11 +338,11 @@ export default function BookingForm() {
                             </div>
                             <button
                                 onClick={handleBooking}
-                                disabled={isPending || !selectedDate || !selectedTime || !clientName || !clientEmail || !clientPhone}
+                                disabled={buttonState.disabled}
                                 className="flex w-full cursor-pointer items-center justify-center rounded-lg h-14 px-6 bg-primary text-background-dark text-base font-black transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/20 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed uppercase tracking-wide gap-2"
                             >
                                 <span className="material-symbols-outlined">lock</span>
-                                {isPending ? "Processing..." : "Pay & Confirm"}
+                                {buttonState.text}
                             </button>
                             <div className="flex justify-center">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Paystack_Logo.png" alt="Secured by Paystack" className="h-4 opacity-50 grayscale hover:grayscale-0 transition-all" />
