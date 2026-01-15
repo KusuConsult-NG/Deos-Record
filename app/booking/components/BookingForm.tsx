@@ -35,7 +35,7 @@ export default function BookingForm() {
     });
 
     // Generate Time Slots
-    const allTimeSlots = ["09:00", "10:30", "12:00", "13:30", "15:00", "16:30", "18:00", "19:30"];
+    const allTimeSlots = ["08:00", "09:30", "11:00", "12:30", "14:00", "15:30", "17:00", "18:30", "20:00"];
 
     // Filter Time Slots for Today
     const timeSlots = allTimeSlots.filter(time => {
