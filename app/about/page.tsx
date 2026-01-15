@@ -55,7 +55,7 @@ export default function AboutPage() {
                     </div>
                     <div className="flex-1 w-full aspect-square md:aspect-4/3 bg-slate-200 dark:bg-white/5 rounded-2xl overflow-hidden relative border border-slate-200 dark:border-white/10">
                         {/* Simulated Studio Image */}
-                        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuAc_COzIl4xngUoti_7DrRT9Xprn1lHMl0RdtB7T5hwQRv6IV2HTnGVwWGpKYijMua_wpZXB2KZki7R75emC-D0Tqo00ERRcVRcG8wpmWBz_b7gbb3Ky2ML6QlMZp-D2LfSFoZl92ojRX-UpexFHQpWpPlqt7rpj1t6HN0YMUyES1Clttbn-AAL-aV_qdA1eOmkRvkGaRptBs_Bk6BjfASg3Ha7OgtWeMn-cLO7gEM3YH7tIigUwI5yjz-Gg7a-rUs_JfMuMkr21mg")' }}></div>
+                        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url("/images/studio/studio-console-wide.jpg")' }}></div>
                         <div className="absolute inset-0 bg-primary/20 mix-blend-overlay"></div>
                     </div>
                 </section>

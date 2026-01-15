@@ -73,7 +73,7 @@ export default function Home() {
                     <span className="text-xs font-bold uppercase tracking-widest text-gold mb-2 block">Recording</span>
                     <h3 className="text-xl font-bold">Vocal Booth Sessions</h3>
                   </div>
-                  <div className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvzQ3K3JMMkWGEuZ3lLoC9rGGyd4wXmmtL51rZIfshdrXBUAl220Q-TrBjc4wuftZcO-yhlMxLNuOLfTFbLr9bgTpuxkyzZ70csXCgO0neJt-E_tXwZaf3JSDwPOf19u2O-UOt2jdTV1T7tfVQq5B6JEpUAhDPMTdrfCrm4DOrx8NA7LJ-_lbFuda4enpHzkzAshzAILpyNsPjAjA5v7xRTbHwdWbNsUMEqjoaTW4Mdve74j5RwOUNAPdqCFm0oXAai5bqz4uUuUs')" }}></div>
+                  <div className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: "url('/images/studio/studio-room.jpg')" }}></div>
                 </div>
                 <div className="min-w-[85%] md:min-w-[600px] aspect-video rounded-xl overflow-hidden snap-center relative group">
                   <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent z-10"></div>
@@ -81,7 +81,7 @@ export default function Home() {
                     <span className="text-xs font-bold uppercase tracking-widest text-gold mb-2 block">Podcast</span>
                     <h3 className="text-xl font-bold">The Broadcast Suite</h3>
                   </div>
-                  <div className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuC3Dc7q6xlB-l15TDHarqqQlN3SVJpzHKX8x4LcktslGO-wUPtGlhhl1XH_ARGkCIPc0VSGJu9hN4PAKIU7eoVl7iBH2zSeBE5sSEGCmiKhmAzHmYyro1oiyVnzlt8y-ilD_R42QCyax4gOdc7tW3V-ftWomU3Mfty1EcT2FIjMKCoVYbTrKR-14OmV8nLdF456Kh1wOis0D_-amkagtjiYJPoaVYM_hUQy9IchZqQSF7xOdMUwqSCdWU-so6Lh22vNCg44zzQYjS0')" }}></div>
+                  <div className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: "url('/images/studio/studio-podcast.jpg')" }}></div>
                 </div>
                 <div className="min-w-[85%] md:min-w-[600px] aspect-video rounded-xl overflow-hidden snap-center relative group">
                   <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent z-10"></div>
@@ -89,7 +89,7 @@ export default function Home() {
                     <span className="text-xs font-bold uppercase tracking-widest text-gold mb-2 block">Post-Production</span>
                     <h3 className="text-xl font-bold">Mixing &amp; Mastering</h3>
                   </div>
-                  <div className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAN1jDXszWannE7PLoAyW0hbSyk-aAVB16uMmOZUPbpI4nqe68yJ4lB1vf4LpFlnfiaSiHcuAP-fjWMMq9VO86s5BhKiXfL1Njn22r6zviZ7zoCGOsBNWD6CZ7w3oVMBDDlueRrPsmG_lf5hT98ve5Lt7YHddzvPEZBIKZStLEmasnRlrHB1nP7Hk24Sp9mLLZwJfPEKktvEn9-apGSgT6m78EBo7ODSP7rdAOROmnevSuSMM1Hg6xcum95PwY0LkT7i5MA_8qYzWs')" }}></div>
+                  <div className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: "url('/images/studio/studio-console-close.jpg')" }}></div>
                 </div>
               </div>
             </div>
@@ -219,25 +219,25 @@ export default function Home() {
               <div className="absolute inset-0 bg-gold/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
                 <span className="text-white font-bold">View Project</span>
               </div>
-              <div className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBAFvyhNNNMmOptJmDfMQM0JpSykXfPVj8N7HzHZeCF0b82SAVtN_pCG56RkCdg-Pz7LjELAbx3jT1LBxu5FDIuDgccDEGhjVztykctyecUfcVVKi3EcblxBNegXzxZ-8NcYBNF2tAc8M4-kmLsJMaNYhGMfqyGJYrr2kCabj61QTczf0YuFCgERvseTEGYLzvK4eNVkcTe3QZkJPaVXM-mCfGlGiK_DtLo3XepnRWHWab9NI6HSvVVKLpzAKiLWDf9HvCC6HwGm6s')" }}></div>
+              <div className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style={{ backgroundImage: "url('/images/studio/studio-podcast-overhead.jpg')" }}></div>
             </div>
             <div className="aspect-square rounded-xl overflow-hidden relative group cursor-pointer">
               <div className="absolute inset-0 bg-gold/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
                 <span className="text-white font-bold">View Project</span>
               </div>
-              <div className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDonxFJEyfVrOLLYypjsDB4UyUh05dKY3TzGlUMPrSUXTWuhn1C0uAmZWcOE2TYQGHRR7Gi3pvInd_MwP137VXa2-SQmfaKtT9Zqzk-wM7JcwJOHb1C8H5UOkl7j1Gaho_clNbWwqh6HXWB6nMr9-lCP_LY7ltUvR4Q4FX8XMbioQql_Yyq9SrXjbFyqHPSkzBa1kcZu35Gca1hjeZMzbdLQHQwEG6IRkxeffNMjWGtmUToKsyIfDqzV7DetXiqnBgVxFdqwPNsS_E')" }}></div>
+              <div className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style={{ backgroundImage: "url('/images/studio/studio-wide-purple.jpg')" }}></div>
             </div>
             <div className="aspect-square rounded-xl overflow-hidden relative group cursor-pointer">
               <div className="absolute inset-0 bg-gold/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
                 <span className="text-white font-bold">View Project</span>
               </div>
-              <div className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCojyY0js0z05KH-CDdX7ZX1jbCT1Tt91bOAg4Mj6h1IrDWvqEadf3vStnsxk0NKkTRXIQdbsrnTRWlq_iwkMRdrlC7sY4sIWqMHzMGfgeerN5J6RQg-k0sA6mMmOclvcWudFe8UFzSUGYpgFIorqxnsV_BzEE2HzDE6bDwslsaU8m6A6OvumIFCAnwDRNU9tj5V2ULMBdww1LltwSoFEQzxZVxkJxiYWfpQCWf7sa_v9_5rB-s_wG9UyhW0IuPBP5TnAzbc3VUoa4')" }}></div>
+              <div className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style={{ backgroundImage: "url('/images/studio/studio-desk-side.jpg')" }}></div>
             </div>
             <div className="aspect-square rounded-xl overflow-hidden relative group cursor-pointer">
               <div className="absolute inset-0 bg-gold/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
                 <span className="text-white font-bold">View Project</span>
               </div>
-              <div className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuB0lm6nYTN1k1x_rmpc3_7HjriDcoYq69jRt9XSaM5S3-NlC9S6EmjGhgstbGbwgIARrFF4fO1DdnU_OQgmE5Yh2vooR5sirvBPjkr86nalepMJ54Va9HJY04YMpUKoqGIKvFefwUQxek7iLdJpbVjFvRDm3-25rSyJPEO-wk1VT_Pwd_iyv2x73L7l-ST7lO27qbShKD5RK7a7wNxOe-43C7J3P4wZfwD0We-XT1bdLPSusS26Q1DWMzOa0OLGVt6xRTljZyiOpXY')" }}></div>
+              <div className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style={{ backgroundImage: "url('/images/studio/studio-desk-keyboard.jpg')" }}></div>
             </div>
           </div>
         </section>
