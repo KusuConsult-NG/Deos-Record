@@ -81,7 +81,7 @@ export default function AboutPage() {
 
                 {/* Team Callout */}
                 <section className="text-center bg-slate-900 dark:bg-black rounded-3xl p-16 md:p-24 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-[url('https://lh3.googleusercontent.com/aida-public/AB6AXuDDBhnA8W4UlN3kO6aPSaf-RjYL0HECExiTMUVnr60bJ39i09longP4D2YD1qw_X-MslEbITKQ4A509LsI-AzYSdTfBhVY9-QR8IW4ojRW86CD3MUfaUmFjldobo_jtry6hXsft6ySz1McFiyYJyipKDbo-KwhxnU0GdyHBYSZqanjOuc_7Kmhx6B35QcqX6sMMMRqpNl0BcZCTylvbWm5iBurPj-ce6jLV_rHj_hsgbJdYRr-V0fYqDx69_9rE9j4q08A620TUkqU')] bg-cover bg-center opacity-20"></div>
+                    <div className="absolute inset-0 bg-[url('/images/studio/studio-console-angle.jpg')] bg-cover bg-center opacity-20"></div>
                     <div className="absolute inset-0 bg-linear-to-t from-black via-black/80 to-transparent"></div>
 
                     <div className="relative z-10 max-w-2xl mx-auto">
