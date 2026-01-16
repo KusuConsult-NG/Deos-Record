@@ -44,7 +44,7 @@ export default function PortfolioPage() {
                     </div>
                     {/* Featured MediaPlayer */}
                     <div className="p-4 mb-4">
-                        <div className="group relative flex items-center justify-center bg-black bg-cover bg-center aspect-video rounded-xl overflow-hidden ring-1 ring-white/10" style={{ backgroundImage: 'url("/images/studio/studio-wide-purple.jpg")' }}>
+                        <div className="group relative flex items-center justify-center bg-black bg-cover bg-center aspect-video rounded-xl overflow-hidden ring-1 ring-white/10" style={{ backgroundImage: 'url("/images/studio/studio-interview-production.jpg")' }}>
                             <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors"></div>
                             <button className="z-10 flex shrink-0 items-center justify-center rounded-full size-20 bg-primary/90 text-[#222011] shadow-2xl transition-transform hover:scale-110 active:scale-90">
                                 <span className="material-symbols-outlined text-[40px]! translate-x-1" style={{ fontVariationSettings: "'FILL' 1" }}>play_arrow</span>
