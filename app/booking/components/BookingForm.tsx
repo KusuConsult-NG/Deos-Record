@@ -17,6 +17,7 @@ export default function BookingForm() {
     const [clientName, setClientName] = useState("");
     const [clientEmail, setClientEmail] = useState("");
     const [clientPhone, setClientPhone] = useState("");
+    const [secretCode, setSecretCode] = useState("");
 
     // Date/Time State
     const [selectedDate, setSelectedDate] = useState("");
@@ -274,6 +275,18 @@ export default function BookingForm() {
                                 onChange={(e) => setClientName(e.target.value)}
                                 placeholder="Enter your full name"
                                 className="w-full p-3 rounded-lg border border-slate-200 dark:border-[#5a5035] bg-white dark:bg-[#221e11] text-slate-900 dark:text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-[#c9bb92] mb-1">Secret Code / Voucher (Optional)</label>
+                            <input
+                                id="secretCode"
+                                type="password"
+                                autoComplete="new-password"
+                                value={secretCode}
+                                onChange={(e) => setSecretCode(e.target.value)}
+                                placeholder="Enter code"
+                                className="w-full p-3 rounded-lg border border-slate-200 dark:border-[#5a5035] bg-white dark:bg-[#221e11] text-slate-900 dark:text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-mono tracking-widest security-disc"
                             />
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
