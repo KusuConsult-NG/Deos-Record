@@ -44,7 +44,7 @@ export default function PortfolioPage() {
                     </div>
                     {/* Featured MediaPlayer */}
                     <div className="p-4 mb-4">
-                        <div className="group relative flex items-center justify-center bg-black bg-cover bg-center aspect-video rounded-xl overflow-hidden ring-1 ring-white/10" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCV9F3KMJtyXZIP3OM2fvj2Jr2Z7qrIYt8eQBd4srz60eNRprUh0KSvmFOa4L1OOA8bgr9k5so-1tFLvDKQyhfmOXm17DJx9sYjPsDWXyEDewIpTnSrCXbXUC9N2YO1rugLO4sq6Aot0g871dr7WaiOt03DIFug900INyMQ1CrQ4TH3W9O1sR1NlUuZwLGQRFaUeAgVyXwykFqlXbyJMhG4a1n71eQJ01LYB6vtrki349REcZ3-2bqEDYhSeCBTi8XTwuXUr8cnYE0")' }}>
+                        <div className="group relative flex items-center justify-center bg-black bg-cover bg-center aspect-video rounded-xl overflow-hidden ring-1 ring-white/10" style={{ backgroundImage: 'url("/images/studio/studio-wide-purple.jpg")' }}>
                             <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors"></div>
                             <button className="z-10 flex shrink-0 items-center justify-center rounded-full size-20 bg-primary/90 text-[#222011] shadow-2xl transition-transform hover:scale-110 active:scale-90">
                                 <span className="material-symbols-outlined text-[40px]! translate-x-1" style={{ fontVariationSettings: "'FILL' 1" }}>play_arrow</span>
@@ -71,9 +71,9 @@ export default function PortfolioPage() {
                     <div className="flex overflow-x-auto pb-6 [-ms-scrollbar-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                         <div className="flex items-stretch px-4 gap-6">
                             {[
-                                { title: "Live Concert Stream", sub: "Event Coverage", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBtN_2b7nLvnyb8OBDh_xI1BGJpo45SLqI3eVRTYhQTerv2fpRPJCS4qQOwMmHzVGP9HGccz5GfZjmdiomYVXLbwXKCMomKk7czEr6FBa0dAB0GcNeOR2V0gGlbh3dCPz3jtbp2imSGJ9yr1hVVqAylfCQgUHwbPNj-7KAaP3QE_llzaEKx0E18GtbeNFUHPk4S46KZiuDZRtz_GGQ6UUXo-gI9Jexs011IAtpaafp1WNgaEe2zr16cthwMxHA0J4BFnWNvBqCibxc" },
-                                { title: "Corporate Brand Film", sub: "Commercial", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAvBcDVpTnGB961EeLd7y6yEYRkWEkdS9Shgn5FzFzKFTck35no0QzMoerGwCZ6oOlAlzeYfj-538MRgcf8hnVoEyC9HcHmpioAu7v0yHSJA9wnATzjRvvOfllyhNSl3BQgNmTIpBP0QHUkJDwquzDaDAYAxkwiZ26-V0-Hmg5TYhBKN4HWlWvapIEiWbYqoOcSGhkkBD5yC0XOboyvMvsewegrEF5-FPH862YgsHEuBQekRAxDyN8oKiWCO3FIJKCeqa4O6xZS-ds" },
-                                { title: `Documentary: "Vibe of Abuja"`, sub: "Mini-Doc", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDi-5PVeV-GxaUqyZUwQETCNbVjJYvT2UFIuOh1XTDYxRwR5diOcb4F5xc26frS2QKa2aH57XfKOEfnQmOKW2uflqEsb0-VQ7UeJaCwzXoY9xnbAddCEADje5U5q2n0uNZMl--42lVCjWsH72b8RVVv5r1MRiEUgWGqSF5bZP0Nn9U15WN_OqcIaAekNha-kcI3V_F7Ry5DwLVxoFhrjyNy2Lu_CxVRssnUoEQqT4XB_HTtmlpMJka1RMIFkJUVtv0yEEsO5n6HXNY" }
+                                { title: "Live Concert Stream", sub: "Event Coverage", img: "/images/studio/studio-podcast-overhead.jpg" },
+                                { title: "Corporate Brand Film", sub: "Commercial", img: "/images/studio/studio-desk-side.jpg" },
+                                { title: `Documentary: "Vibe of Abuja"`, sub: "Mini-Doc", img: "/images/studio/studio-console-close.jpg" }
                             ].map((item, i) => (
                                 <div key={i} className="flex h-full flex-col gap-4 group cursor-pointer min-w-72">
                                     <div className="relative w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl overflow-hidden ring-1 ring-white/10 transition-all hover:ring-primary/50" style={{ backgroundImage: `url("${item.img}")` }}>
@@ -138,7 +138,7 @@ export default function PortfolioPage() {
                         <div className="space-y-4">
                             <h3 className="text-[#c9c192] text-sm font-bold uppercase tracking-widest mb-4">Latest Podcast Episodes</h3>
                             <div className="flex gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all cursor-pointer group">
-                                <div className="size-24 rounded-lg bg-cover bg-center ring-1 ring-white/10 shrink-0" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuA2j-Bw2NoHkYHAlJJtg1UhxglcHRcvNb7wBPxz65evXOWwmt5dMluIVzpgoUD9urF76-pqH-XXrrmsqKgm5rPwnXSRRvS-qnpLehoVdIxq9pkPQjTAOrD8RgWTDS4wpkCL9t2gl1IyaH0UanVXnsFMdDd-7iiZ2Fwl5MamXia_y4tQu3FIdDROO13-fxy9KSzfgs-1CJdZUQ9acFgQwWCbRs-JoTd3nxJUtHu4MoMRSc3tTT5azaJftYlZHS1uUWFGJ8_sqhHnOg8")' }}>
+                                <div className="size-24 rounded-lg bg-cover bg-center ring-1 ring-white/10 shrink-0" style={{ backgroundImage: 'url("/images/studio/studio-podcast.jpg")' }}>
                                 </div>
                                 <div className="flex flex-col justify-center gap-1">
                                     <div className="flex items-center gap-2">
@@ -153,7 +153,7 @@ export default function PortfolioPage() {
                                 </div>
                             </div>
                             <div className="flex gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all cursor-pointer group">
-                                <div className="size-24 rounded-lg bg-cover bg-center ring-1 ring-white/10 shrink-0" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDxu7GoZ8g6EwshfTbS40h6ZsCK1jOYYniRJOczMLboq8j0ud6sQTXWe2dboREpPsDz2mRnbNPF4uj8bJRetRqSlRntHfTJ9HsZD-Stt_PkG39gKFv29xsIwt8yAjsyJwFt4YQbUVBR4su2Fc4_z1UL1enDP7KltW3NZwn9nZ5WTqbw3cL8w6sCZdP6r8RPxFBYn9Pav2q4JYFDyRzM1wTXjY7EdniWZ-WyL5BgwNQqFUMbOses7uF1tcavH9NvRtjCIhY5Zf44n6Y")' }}>
+                                <div className="size-24 rounded-lg bg-cover bg-center ring-1 ring-white/10 shrink-0" style={{ backgroundImage: 'url("/images/studio/studio-console-angle.jpg")' }}>
                                 </div>
                                 <div className="flex flex-col justify-center gap-1">
                                     <div className="flex items-center gap-2">

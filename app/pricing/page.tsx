@@ -89,7 +89,7 @@ export default function PricingPage() {
             <main className="flex-1 flex flex-col items-center w-full">
                 {/* Hero Section */}
                 <div className="w-full max-w-[1200px] px-4 pt-10 pb-6">
-                    <div className="rounded-xl overflow-hidden relative min-h-[300px] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: 'linear-gradient(rgba(34, 29, 16, 0.85) 0%, rgba(34, 29, 16, 0.95) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD8tsMO-4SFO4SDFQeJFYNZgzkJzX2YDb1VRsk8tqs6ySCgt5FJCJaXsRf7uEDTa6D3OCY3k4BZDT2OWMWHREWmVcz_MpGHgeNLZEkc_RFyqXDt2BiGsqYY4CzUFCa9fqMguIX-8XqBjkEMZsn9WGruuMZrtgnlNCDHpnVXNqfXCIN0EJXLlt5ZqH4Oh8lgj8M-3TWi8NBcReP4EKI8T56pWnEJDpsT9A9vX2ON7gAcxtK4PYtNd_GquEf-iMiOVS3bCLJJKil5rlE")' }}>
+                    <div className="rounded-xl overflow-hidden relative min-h-[300px] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: 'linear-gradient(rgba(34, 29, 16, 0.85) 0%, rgba(34, 29, 16, 0.95) 100%), url("/images/studio/studio-desk-keyboard.jpg")' }}>
                         <div className="text-center relative z-10 px-4">
                             <h1 className="text-white text-4xl md:text-5xl font-black mb-4">Official Rate Card</h1>
                             <p className="text-slate-300 text-lg max-w-2xl mx-auto">
