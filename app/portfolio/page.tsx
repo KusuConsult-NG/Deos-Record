@@ -176,7 +176,7 @@ export default function PortfolioPage() {
                     <p className="text-[#c9c192] text-lg mb-8 max-w-xl mx-auto">From high-quality audio mastering to professional cinematic video production, we bring your vision to life in Abuja.</p>
                     <div className="flex items-center justify-center gap-4">
                         <button className="bg-primary text-[#222011] px-8 py-3 rounded-lg font-bold text-lg hover:scale-105 transition-transform">Book Your Session</button>
-                        <button className="border border-[#c9c192] text-slate-900 dark:text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-white/5 transition-colors">Our Packages</button>
+                        <Link href="/services" className="border border-[#c9c192] text-slate-900 dark:text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-white/5 transition-colors inline-block text-center">Our Packages</Link>
                     </div>
                 </div>
             </main>

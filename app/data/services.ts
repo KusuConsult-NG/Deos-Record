@@ -69,7 +69,5 @@ export const serviceCategories = [
 export const teamMembers = [
     { name: "Dr. Sammy", role: "Music Producer/Audio Engineer", avatar: "/images/dr_sammy.jpg" },
     { name: "Oiza Daniel", role: "Podcast Host", avatar: "/images/oiza_daniel.jpg" },
-    { name: "Morgan Azi", role: "Creative Director", avatar: "/images/morgan_azi.jpg" },
-    { name: "Kevin L.", role: "Sound Designer", avatar: "/images/studio/studio-console-angle.jpg" },
-    { name: "Zoe A.", role: "Lead Editor", avatar: "/images/studio/studio-desk-keyboard.jpg" }
+    { name: "Morgan Azi", role: "Creative Director", avatar: "/images/morgan_azi.jpg" }
 ];
