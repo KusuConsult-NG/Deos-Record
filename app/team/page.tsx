@@ -52,7 +52,7 @@ export default function TeamPage() {
                         {/* Team Member 1 */}
                         <div className="group relative flex flex-col gap-5 overflow-hidden rounded-xl bg-white/5 p-4 border border-white/10 hover:border-primary/50 transition-all duration-500">
                             <div className="relative w-full aspect-4/5 overflow-hidden rounded-lg">
-                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuB0qWIJtohAF3XmNBkB2WNohK4h-KAeQ0RDPz94drh4uFQPVgTnbXU3FC3DcHn4GY44xu4Zys3NOXE8_YXGdwgphooXg-8aesMyV87H3GStd91H9Yv9N8Uf7kI9zziL5lyO21JAsuxaNtQ01jcXCPSc1F2V-KjN9qolQInjmqyif4iK6Fc2tcfDMX6IBcq63VqGKMUeJnTT--ywDx6qZyaWWXvRyyjjt1Coag6OnK1b91KrKnSQ8HmuKE4paXNhrg1hTBiEiWVwpuo")' }}>
+                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("/images/dr_sammy.jpg")' }}>
                                 </div>
                                 <div className="absolute inset-0 bg-linear-to-b from-transparent to-background-dark/90 opacity-60 group-hover:opacity-40 transition-opacity"></div>
                                 <div className="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
@@ -69,8 +69,8 @@ export default function TeamPage() {
                             <div className="space-y-2">
                                 <div className="flex justify-between items-start">
                                     <div>
-                                        <h3 className="text-slate-900 dark:text-white text-xl font-bold">Tunde Deos</h3>
-                                        <p className="text-primary text-sm font-semibold uppercase tracking-wider">Lead Producer</p>
+                                        <h3 className="text-slate-900 dark:text-white text-xl font-bold">Dr. Sammy</h3>
+                                        <p className="text-primary text-sm font-semibold uppercase tracking-wider">Music Producer/Audio Engineer</p>
                                     </div>
                                     <span className="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">graphic_eq</span>
                                 </div>
@@ -82,7 +82,7 @@ export default function TeamPage() {
                         {/* Team Member 2 */}
                         <div className="group relative flex flex-col gap-5 overflow-hidden rounded-xl bg-white/5 p-4 border border-white/10 hover:border-primary/50 transition-all duration-500">
                             <div className="relative w-full aspect-4/5 overflow-hidden rounded-lg">
-                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuAppflpr3TKm999bfYTORKfkZCAv-XQCd--yFqk32_Ttj8QdbGhz2-CH3IZnJZybQWtbdTNDyMgPD69qdZRlJkhT3ZqNjaBddQgsipRJllh0Hz8mDXzXrzqZW_CTrVa-oH--QjOS4V1eXhPlq6itPqzJLa2AMI738kUs-IaI9667eNgLKKCRMLDhMaBCbzPsDss3cI61SDwCtECe6laTKpbOCDSfK0iylJpoxdYhKp_y_bgqHQBl6ksY5EzrRBTLRFSF9Smhi5uyGU")' }}>
+                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("/images/dr_sammy.jpg")' }}>
                                 </div>
                                 <div className="absolute inset-0 bg-linear-to-b from-transparent to-background-dark/90 opacity-60 group-hover:opacity-40 transition-opacity"></div>
                                 <div className="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
@@ -99,8 +99,8 @@ export default function TeamPage() {
                             <div className="space-y-2">
                                 <div className="flex justify-between items-start">
                                     <div>
-                                        <h3 className="text-slate-900 dark:text-white text-xl font-bold">Sarah J.</h3>
-                                        <p className="text-primary text-sm font-semibold uppercase tracking-wider">Audio Engineer</p>
+                                        <h3 className="text-slate-900 dark:text-white text-xl font-bold">Dr. Sammy</h3>
+                                        <p className="text-primary text-sm font-semibold uppercase tracking-wider">Music Producer/Audio Engineer</p>
                                     </div>
                                     <span className="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">settings_input_component</span>
                                 </div>
@@ -112,7 +112,7 @@ export default function TeamPage() {
                         {/* Team Member 3 */}
                         <div className="group relative flex flex-col gap-5 overflow-hidden rounded-xl bg-white/5 p-4 border border-white/10 hover:border-primary/50 transition-all duration-500">
                             <div className="relative w-full aspect-4/5 overflow-hidden rounded-lg">
-                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDP1OQQ5gVI89Q56Hge_1FbfHNcwZYIR-GpDcgk4zWDhz6V0y6ZkI0tD91mvDIF84FjRST9dcgJfrBpIrP136ABSnZYxzkt7QF9rpwXaX5hvnC8eEBmjJTrwzs2w3Rw_dZNxN7wWFdkY3DVbz7FpT21hAWGeN5wavWh8YIxRgEzMzgdIvej8f5LbPXy8g-f1KF2HZ5HB2apfg0dvlFQ12SjpSnUcD8_dmGMxw5NWnzhh8KiK7d8QPOJ87Xu12s6et4L1Sxd4IJwxzA")' }}>
+                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("/images/oiza_daniel.jpg")' }}>
                                 </div>
                                 <div className="absolute inset-0 bg-linear-to-b from-transparent to-background-dark/90 opacity-60 group-hover:opacity-40 transition-opacity"></div>
                                 <div className="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
@@ -129,33 +129,33 @@ export default function TeamPage() {
                             <div className="space-y-2">
                                 <div className="flex justify-between items-start">
                                     <div>
-                                        <h3 className="text-slate-900 dark:text-white text-xl font-bold">David O.</h3>
-                                        <p className="text-primary text-sm font-semibold uppercase tracking-wider">Video Director</p>
+                                        <h3 className="text-slate-900 dark:text-white text-xl font-bold">Oiza Daniel</h3>
+                                        <p className="text-primary text-sm font-semibold uppercase tracking-wider">Podcast Host</p>
                                     </div>
-                                    <span className="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">movie_filter</span>
+                                    <span className="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">mic</span>
                                 </div>
                                 <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                                    Visual storytelling redefined. David captures the essence of rhythm through cinematic cinematography.
+                                    Expert voice in navigating the multi-media landscape. Oiza brings charismatic storytelling and depth to every conversation.
                                 </p>
                             </div>
                         </div>
                         {/* Team Member 4 */}
                         <div className="group relative flex flex-col gap-5 overflow-hidden rounded-xl bg-white/5 p-4 border border-white/10 hover:border-primary/50 transition-all duration-500">
                             <div className="relative w-full aspect-4/5 overflow-hidden rounded-lg">
-                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuAjU3hp7PW1sg8ahW5cxI0wRxIldquwRCypnyLQc4PkadeD93iJTZFFJ9sv4LuCYM0hzbsAse6Hq4zLi_RTUiP3fzqd-ONdgf3jUCNdvq-CHMRTuGBF_qCJEnJ7Jkuv1CN01cpeDIZwNGArhewKKmqCsfQC0eSKpD29392zNfOLIRy1IRWvOkUShovYiwtqFK6WR_-EpM1CQHWcrvs3mwiDfItOxj7xBI5Ib3Lxene6cgcX5L4odIgaGwEaZmYxGMJJNe3iJjXQYVQ")' }}>
+                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("/images/morgan_azi.jpg")' }}>
                                 </div>
                                 <div className="absolute inset-0 bg-linear-to-b from-transparent to-background-dark/90 opacity-60 group-hover:opacity-40 transition-opacity"></div>
                             </div>
                             <div className="space-y-2">
                                 <div className="flex justify-between items-start">
                                     <div>
-                                        <h3 className="text-slate-900 dark:text-white text-xl font-bold">Aisha M.</h3>
-                                        <p className="text-primary text-sm font-semibold uppercase tracking-wider">Creative Strategist</p>
+                                        <h3 className="text-slate-900 dark:text-white text-xl font-bold">Morgan Azi</h3>
+                                        <p className="text-primary text-sm font-semibold uppercase tracking-wider">Creative Director</p>
                                     </div>
-                                    <span className="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">lightbulb</span>
+                                    <span className="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">palette</span>
                                 </div>
                                 <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                                    Bridging the gap between idea and art. Aisha ensures every project has a powerful, marketable soul.
+                                    Visionary leader in multimedia art. Morgan oversees the creative direction of all high-impact projects at Deos Record.
                                 </p>
                             </div>
                         </div>

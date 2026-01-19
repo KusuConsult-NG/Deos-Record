@@ -181,11 +181,11 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-4 mb-8">
                   <div className="size-16 rounded-full overflow-hidden border-2 border-gold/20">
-                    <div className="relative w-full h-full"> <Image alt="Podcaster" layout="fill" objectFit="cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjuijLifq5mjFZPOz3Rqi7PJrHQaGhSpHKp3Cltq3d43-9lIfGSEssEWLgkffGxaGva-scjWTrLRjdh0bHHtICy3XnzyTUIFRYL6P-4qwZhRIrw_XYtqbvtm17fcWMmjgSKO-7K2sjgGR1k61eFmXvf7pp3edlvEhRAShsR20KtDmW-KzSXb-7rkVGqaHT9z4i3ThLOsSBMWdm7OjViFyJM7WE9ABWHCeL61yBIs9QH7kIzyjp_MqQM_W8300htNZm_qPIyihOq1U" /> </div>
+                    <div className="relative w-full h-full"> <Image alt="Podcast Host" layout="fill" objectFit="cover" src="/images/oiza_daniel.jpg" /> </div>
                   </div>
                   <div>
-                    <h4 className="font-bold text-lg">Zainab Bello</h4>
-                    <p className="text-gold text-sm font-medium uppercase tracking-wider">Podcaster</p>
+                    <h4 className="font-bold text-lg">Oiza Daniel</h4>
+                    <p className="text-gold text-sm font-medium uppercase tracking-wider">Podcast Host</p>
                   </div>
                 </div>
                 <p className="text-slate-300 text-lg leading-relaxed italic">

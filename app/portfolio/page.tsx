@@ -161,7 +161,7 @@ export default function PortfolioPage() {
                                         <span className="text-primary text-[10px] font-bold uppercase">Studio Sessions</span>
                                     </div>
                                     <p className="text-slate-900 dark:text-white font-bold leading-tight group-hover:text-primary transition-colors">Ep. 41: Behind the Scenes of High-End Production</p>
-                                    <p className="text-[#c9c192] text-xs">Host: Deos Team | Duration: 35m</p>
+                                    <p className="text-[#c9c192] text-xs">Host: Oiza Daniel | Duration: 35m</p>
                                 </div>
                                 <div className="flex items-center ml-auto">
                                     <span className="material-symbols-outlined text-white/40 group-hover:text-primary">arrow_forward_ios</span>

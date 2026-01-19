@@ -67,10 +67,10 @@ export const serviceCategories = [
 ];
 
 export const teamMembers = [
-    { name: "Tunde Deos", role: "Lead Producer", avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuB0qWIJtohAF3XmNBkB2WNohK4h-KAeQ0RDPz94drh4uFQPVgTnbXU3FC3DcHn4GY44xu4Zys3NOXE8_YXGdwgphooXg-8aesMyV87H3GStd91H9Yv9N8Uf7kI9zziL5lyO21JAsuxaNtQ01jcXCPSc1F2V-KjN9qolQInjmqyif4iK6Fc2tcfDMX6IBcq63VqGKMUeJnTT--ywDx6qZyaWWXvRyyjjt1Coag6OnK1b91KrKnSQ8HmuKE4paXNhrg1hTBiEiWVwpuo" },
-    { name: "Sarah J.", role: "Audio Engineer", avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuAppflpr3TKm999bfYTORKfkZCAv-XQCd--yFqk32_Ttj8QdbGhz2-CH3IZnJZybQWtbdTNDyMgPD69qdZRlJkhT3ZqNjaBddQgsipRJllh0Hz8mDXzXrzqZW_CTrVa-oH--QjOS4V1eXhPlq6itPqzJLa2AMI738kUs-IaI9667eNgLKKCRMLDhMaBCbzPsDss3cI61SDwCtECe6laTKpbOCDSfK0iylJpoxdYhKp_y_bgqHQBl6ksY5EzrRBTLRFSF9Smhi5uyGU" },
-    { name: "David O.", role: "Video Director", avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDP1OQQ5gVI89Q56Hge_1FbfHNcwZYIR-GpDcgk4zWDhz6V0y6ZkI0tD91mvDIF84FjRST9dcgJfrBpIrP136ABSnZYxzkt7QF9rpwXaX5hvnC8eEBmjJTrwzs2w3Rw_dZNxN7wWFdkY3DVbz7FpT21hAWGeN5wavWh8YIxRgEzMzgdIvej8f5LbPXy8g-f1KF2HZ5HB2apfg0dvlFQ12SjpSnUcD8_dmGMxw5NWnzhh8KiK7d8QPOJ87Xu12s6et4L1Sxd4IJwxzA" },
-    { name: "Aisha M.", role: "Creative Strategist", avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuAjU3hp7PW1sg8ahW5cxI0wRxIldquwRCypnyLQc4PkadeD93iJTZFFJ9sv4LuCYM0hzbsAse6Hq4zLi_RTUiP3fzqd-ONdgf3jUCNdvq-CHMRTuGBF_qCJEnJ7Jkuv1CN01cpeDIZwNGArhewKKmqCsfQC0eSKpD29392zNfOLIRy1IRWvOkUShovYiwtqFK6WR_-EpM1CQHWcrvs3mwiDfItOxj7xBI5Ib3Lxene6cgcX5L4odIgaGwEaZmYxGMJJNe3iJjXQYVQ" },
+    { name: "Dr. Sammy", role: "Music Producer/Audio Engineer", avatar: "/images/dr_sammy.jpg" },
+    { name: "Dr. Sammy", role: "Music Producer/Audio Engineer", avatar: "/images/dr_sammy.jpg" },
+    { name: "Oiza Daniel", role: "Podcast Host", avatar: "/images/oiza_daniel.jpg" },
+    { name: "Morgan Azi", role: "Creative Director", avatar: "/images/morgan_azi.jpg" },
     { name: "Kevin L.", role: "Sound Designer", avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDiXbjk1F3YdUGCDrp_kfjF-jcdAnU5t0PGvtgecOFVa_m1vaERudrXBIspyalhaEa41xRPYs_Co3SiJqUDDdbyJb8lxoCLtQqZYf1BFlX1DJOSE6Kpg3iAx6oqc446XBNMc0IaKvC-lafP36d2JItN37uaMhgiNFeQY7BRHeK3dd-cDR4bIcPQfv1dzKOzmh0AWS1wbtdpYge4TmPD0jRpQzYqC2XeuLgLru3QDjkwl12W44a5EWd34QRGIjxZGeU8cdgyJpbmAjw" },
     { name: "Zoe A.", role: "Lead Editor", avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuAz6bZcl_VBOIfmD_1FJDH2cGuYxBl7UdCG5e9kTw2V72RHOTjQdDPkIecakxzemItYwTCkIzHB0LJ-vMYDvaopW0OIlxujTIJXK5e7_y_miNivgsZg17rnDyBaGyqV9QzT2r9FwR4f97i7hc46VyoOEQ8nLJKLYYShZPvwR1ysy7qIA5hMVHpr1bnaZpLSF2apobYIU8sy_7-VJCiBwZW_GBF8DKNCdiScbISSc_rruLw-hdSFQHp2neyqiT-wZYiyWUmNeOCpExU" }
 ];
