@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Footer from "../../components/Footer";
-import { teamMembers } from "../../data/services";
+import { teamMembers } from "../data/services";
 
 export default function TeamPage() {
     return (
