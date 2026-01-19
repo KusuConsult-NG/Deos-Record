@@ -51,7 +51,7 @@ export default function TeamPage() {
                 <div className="px-6 md:px-20 lg:px-40 pb-20">
                     <div className="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {teamMembers.map((member, i) => (
-                            <div key={i} className="group relative flex flex-col gap-5 overflow-hidden rounded-xl bg-white/5 p-4 border border-white/10 hover:border-primary/50 transition-all duration-500">
+                            <div key={member.name} className="group relative flex flex-col gap-5 overflow-hidden rounded-xl bg-white/5 p-4 border border-white/10 hover:border-primary/50 transition-all duration-500">
                                 <div className="relative w-full aspect-4/5 overflow-hidden rounded-lg">
                                     <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: `url("${member.avatar}")` }}>
                                     </div>
