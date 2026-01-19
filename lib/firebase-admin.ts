@@ -1,14 +1,17 @@
 import "server-only";
 import admin from "firebase-admin";
 
-const projectId = process.env.FIREBASE_PROJECT_ID;
-const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
-const privateKey = process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n");
-
 const initFirebase = () => {
     if (!admin.apps.length) {
+        const projectId = process.env.FIREBASE_PROJECT_ID;
+        const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
+        const privateKey = process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n");
+
         if (!projectId || !clientEmail || !privateKey) {
-            console.error("Missing Firebase Admin credentials. Server-side actions will fail.");
+            // Only log error in production or if needed, to avoid noise during build
+            if (process.env.NODE_ENV === 'production') {
+                console.error("Missing Firebase Admin credentials.");
+            }
             return null;
         }
 
