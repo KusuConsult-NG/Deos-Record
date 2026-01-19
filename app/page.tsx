@@ -243,12 +243,12 @@ export default function Home() {
         </section>
         <section className="py-20">
           <div className="max-w-[1280px] mx-auto px-6">
-            <div className="bg-primary rounded-xl p-12 text-center text-white relative overflow-hidden">
+            <div className="bg-slate-900 dark:bg-black/40 rounded-xl p-12 text-center text-white relative overflow-hidden border border-white/10">
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold/20 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
               <h2 className="text-4xl md:text-5xl font-black mb-6 relative z-10">Ready to create your masterpiece?</h2>
               <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto relative z-10">Join the community of creators in Abuja who trust Deos Record for their professional production needs.</p>
-              <Link href="/booking" className="bg-white text-slate-900 px-10 py-4 rounded-full text-lg font-bold hover:bg-slate-100 transition-all transform hover:scale-105 relative z-10">
+              <Link href="/booking" className="bg-primary text-slate-900 px-10 py-4 rounded-full text-lg font-bold hover:bg-white transition-all transform hover:scale-105 relative z-10">
                 Secure Your Session
               </Link>
             </div>
