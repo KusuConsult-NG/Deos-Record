@@ -393,7 +393,7 @@ export default function BookingForm() {
                             </button>
                             <div className="flex justify-center">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Paystack_Logo.png" alt="Secured by Paystack" className="h-4 opacity-50 grayscale hover:grayscale-0 transition-all" />
+                                <img src="/images/paystack-logo.png" alt="Secured by Paystack" className="h-4 opacity-50 grayscale hover:grayscale-0 transition-all" />
                             </div>
                         </div>
                     </div>

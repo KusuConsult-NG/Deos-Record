@@ -82,7 +82,7 @@ export default function TeamPage() {
                         {/* Team Member 2 */}
                         <div className="group relative flex flex-col gap-5 overflow-hidden rounded-xl bg-white/5 p-4 border border-white/10 hover:border-primary/50 transition-all duration-500">
                             <div className="relative w-full aspect-4/5 overflow-hidden rounded-lg">
-                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDP1OQQ5gVI89Q56Hge_1FbfHNcwZYIR-GpDcgk4zWDhz6V0y6ZkI0tD91mvDIF84FjRST9dcgJfrBpIrP136ABSnZYxzkt7QF9rpwXaX5hvnC8eEBmjJTrwzs2w3Rw_dZNxN7wWFdkY3DVbz7FpT21hAWGeN5wavWh8YIxRgEzMzgdIvej8f5LbPXy8g-f1KF2HZ5HB2apfg0dvlFQ12SjpSnUcD8_dmGMxw5NWnzhh8KiK7d8QPOJ87Xu12s6et4L1Sxd4IJwxzA")' }}>
+                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("/images/studio/studio-console-vertical.jpg")' }}>
                                 </div>
                                 <div className="absolute inset-0 bg-linear-to-b from-transparent to-background-dark/90 opacity-60 group-hover:opacity-40 transition-opacity"></div>
                                 <div className="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
@@ -162,7 +162,7 @@ export default function TeamPage() {
                         {/* Team Member 5 */}
                         <div className="group relative flex flex-col gap-5 overflow-hidden rounded-xl bg-white/5 p-4 border border-white/10 hover:border-primary/50 transition-all duration-500">
                             <div className="relative w-full aspect-4/5 overflow-hidden rounded-lg">
-                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDiXbjk1F3YdUGCDrp_kfjF-jcdAnU5t0PGvtgecOFVa_m1vaERudrXBIspyalhaEa41xRPYs_Co3SiJqUDDdbyJb8lxoCLtQqZYf1BFlX1DJOSE6Kpg3iAx6oqc446XBNMc0IaKvC-lafP36d2JItN37uaMhgiNFeQY7BRHeK3dd-cDR4bIcPQfv1dzKOzmh0AWS1wbtdpYge4TmPD0jRpQzYqC2XeuLgLru3QDjkwl12W44a5EWd34QRGIjxZGeU8cdgyJpbmAjw")' }}>
+                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("/images/studio/studio-console-angle.jpg")' }}>
                                 </div>
                                 <div className="absolute inset-0 bg-linear-to-b from-transparent to-background-dark/90 opacity-60 group-hover:opacity-40 transition-opacity"></div>
                             </div>
@@ -182,7 +182,7 @@ export default function TeamPage() {
                         {/* Team Member 6 */}
                         <div className="group relative flex flex-col gap-5 overflow-hidden rounded-xl bg-white/5 p-4 border border-white/10 hover:border-primary/50 transition-all duration-500">
                             <div className="relative w-full aspect-4/5 overflow-hidden rounded-lg">
-                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuAz6bZcl_VBOIfmD_1FJDH2cGuYxBl7UdCG5e9kTw2V72RHOTjQdDPkIecakxzemItYwTCkIzHB0LJ-vMYDvaopW0OIlxujTIJXK5e7_y_miNivgsZg17rnDyBaGyqV9QzT2r9FwR4f97i7hc46VyoOEQ8nLJKLYYShZPvwR1ysy7qIA5hMVHpr1bnaZpLSF2apobYIU8sy_7-VJCiBwZW_GBF8DKNCdiScbISSc_rruLw-hdSFQHp2neyqiT-wZYiyWUmNeOCpExU")' }}>
+                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("/images/studio/studio-desk-keyboard.jpg")' }}>
                                 </div>
                                 <div className="absolute inset-0 bg-linear-to-b from-transparent to-background-dark/90 opacity-60 group-hover:opacity-40 transition-opacity"></div>
                             </div>
