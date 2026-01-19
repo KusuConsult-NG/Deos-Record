@@ -82,7 +82,7 @@ export default function TeamPage() {
                         {/* Team Member 2 */}
                         <div className="group relative flex flex-col gap-5 overflow-hidden rounded-xl bg-white/5 p-4 border border-white/10 hover:border-primary/50 transition-all duration-500">
                             <div className="relative w-full aspect-4/5 overflow-hidden rounded-lg">
-                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("/images/dr_sammy.jpg")' }}>
+                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDP1OQQ5gVI89Q56Hge_1FbfHNcwZYIR-GpDcgk4zWDhz6V0y6ZkI0tD91mvDIF84FjRST9dcgJfrBpIrP136ABSnZYxzkt7QF9rpwXaX5hvnC8eEBmjJTrwzs2w3Rw_dZNxN7wWFdkY3DVbz7FpT21hAWGeN5wavWh8YIxRgEzMzgdIvej8f5LbPXy8g-f1KF2HZ5HB2apfg0dvlFQ12SjpSnUcD8_dmGMxw5NWnzhh8KiK7d8QPOJ87Xu12s6et4L1Sxd4IJwxzA")' }}>
                                 </div>
                                 <div className="absolute inset-0 bg-linear-to-b from-transparent to-background-dark/90 opacity-60 group-hover:opacity-40 transition-opacity"></div>
                                 <div className="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
@@ -99,8 +99,8 @@ export default function TeamPage() {
                             <div className="space-y-2">
                                 <div className="flex justify-between items-start">
                                     <div>
-                                        <h3 className="text-slate-900 dark:text-white text-xl font-bold">Dr. Sammy</h3>
-                                        <p className="text-primary text-sm font-semibold uppercase tracking-wider">Music Producer/Audio Engineer</p>
+                                        <h3 className="text-slate-900 dark:text-white text-xl font-bold">Sarah J.</h3>
+                                        <p className="text-primary text-sm font-semibold uppercase tracking-wider">Audio Engineer</p>
                                     </div>
                                     <span className="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">settings_input_component</span>
                                 </div>

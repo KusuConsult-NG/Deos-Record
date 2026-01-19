@@ -164,15 +164,15 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-4 mb-8">
                   <div className="size-16 rounded-full overflow-hidden border-2 border-gold/20">
-                    <div className="relative w-full h-full"> <Image alt="Music Artist" layout="fill" objectFit="cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdktcJnFQTz590iq7QYMk7p_nf_PZweuixZfgOqe7Icuih2ztAfK_5h4N3skGxeXppogOpmd0WWt38A3bZBI9DFlf4OuD8wUNcbQIuy_-AgcLwy0jacG59vPnhjk-FP674W3OZIqoip9fFajqV1xzZJWsjlNdaoFT0m-M5G4SZaoTkox308BSlH4Vho2R307njJNkvCZfawWKgQY-qlW1olaKcPNQOV42L9AwUt2BThAQDmAjdxkGrwZhmu5GxPp4Dja89UF3g_rU" /> </div>
+                    <div className="relative w-full h-full"> <Image alt="Music Producer" layout="fill" objectFit="cover" src="/images/dr_sammy.jpg" /> </div>
                   </div>
                   <div>
-                    <h4 className="font-bold text-lg">Emmanuel Okafor</h4>
-                    <p className="text-gold text-sm font-medium uppercase tracking-wider">Music Artist</p>
+                    <h4 className="font-bold text-lg">Dr. Sammy</h4>
+                    <p className="text-gold text-sm font-medium uppercase tracking-wider">Music Producer</p>
                   </div>
                 </div>
                 <p className="text-slate-300 text-lg leading-relaxed italic">
-                  &quot;The acoustic quality and technical expertise at Deos Record are unmatched in Abuja. They didn&apos;t just record my album; they brought my creative vision to life.&quot;
+                  &quot;The acoustic quality and technical expertise at Deos Record are unmatched in Abuja. We don&apos;t just record tracks; we bring creative visions to life.&quot;
                 </p>
               </div>
               <div className="min-w-[320px] md:min-w-[420px] bg-white/5 border border-white/10 p-10 rounded-2xl snap-center relative">

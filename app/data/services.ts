@@ -68,7 +68,6 @@ export const serviceCategories = [
 
 export const teamMembers = [
     { name: "Dr. Sammy", role: "Music Producer/Audio Engineer", avatar: "/images/dr_sammy.jpg" },
-    { name: "Dr. Sammy", role: "Music Producer/Audio Engineer", avatar: "/images/dr_sammy.jpg" },
     { name: "Oiza Daniel", role: "Podcast Host", avatar: "/images/oiza_daniel.jpg" },
     { name: "Morgan Azi", role: "Creative Director", avatar: "/images/morgan_azi.jpg" },
     { name: "Kevin L.", role: "Sound Designer", avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDiXbjk1F3YdUGCDrp_kfjF-jcdAnU5t0PGvtgecOFVa_m1vaERudrXBIspyalhaEa41xRPYs_Co3SiJqUDDdbyJb8lxoCLtQqZYf1BFlX1DJOSE6Kpg3iAx6oqc446XBNMc0IaKvC-lafP36d2JItN37uaMhgiNFeQY7BRHeK3dd-cDR4bIcPQfv1dzKOzmh0AWS1wbtdpYge4TmPD0jRpQzYqC2XeuLgLru3QDjkwl12W44a5EWd34QRGIjxZGeU8cdgyJpbmAjw" },
