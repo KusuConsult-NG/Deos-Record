@@ -400,12 +400,12 @@ export default function BookingForm() {
                 </div>
 
                 {/* Footer Help */}
-                <div className="flex items-center justify-center gap-8 py-4 opacity-50">
-                    <div className="flex items-center gap-2 text-xs">
-                        <span className="material-symbols-outlined text-[18px]">verified_user</span> Secure Checkout
+                <div className="flex items-center justify-center gap-8 py-4">
+                    <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-[#c9bb92] font-semibold">
+                        <span className="material-symbols-outlined text-[20px] text-primary">verified_user</span> Secure Checkout
                     </div>
-                    <div className="flex items-center gap-2 text-xs">
-                        <span className="material-symbols-outlined text-[18px]">history</span> 24h Rescheduling
+                    <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-[#c9bb92] font-semibold">
+                        <span className="material-symbols-outlined text-[20px] text-primary">history</span> 24h Rescheduling
                     </div>
                 </div>
             </div>
