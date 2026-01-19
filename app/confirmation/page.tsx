@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { getDb } from "@/lib/firebase-admin";
 
+export const dynamic = "force-dynamic";
+
 export default async function ConfirmationPage({ searchParams }: { searchParams: { id: string } }) {
     let booking = null;
     const { id } = searchParams;

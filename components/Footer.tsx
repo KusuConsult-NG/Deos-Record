@@ -58,7 +58,7 @@ export default function Footer() {
                 <div>
                     <h4 className="font-bold mb-6 text-slate-900 dark:text-white">Location</h4>
                     <div className="h-40 w-full rounded-xl overflow-hidden bg-slate-200 dark:bg-white/5">
-                        <div className="w-full h-full bg-cover bg-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBbcmCtsOcjAwlX8SVPazs2Im1SzMzjLFPp7D34Kwt-xcugNnlLifop-13h6o8JH2xI6Ol6PdfORhnNWaQsGXeHdyTZOrU07UZuD9eKaOtYzbzmA-Ejw4V3KsYbwFof0udf7FdMz97zfdzExhA5z0DClWA8kgLH1lU7oq-JMiGaircJvJlMeGBusm7XjxNqPtyobjWW4ya9qyByNvZadkle5ldTGFaWWyTl-j3XfabUMAMKhTTuEhJ7i_vR0giYvi6UW4jnlFiLOOA')" }}></div>
+                        <div className="w-full h-full bg-cover bg-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500" style={{ backgroundImage: "url('/images/studio/studio-room.jpg')" }}></div>
                     </div>
                 </div>
             </div>
