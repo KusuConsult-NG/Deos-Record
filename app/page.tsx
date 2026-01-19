@@ -206,7 +206,7 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-slate-300 text-lg leading-relaxed italic">
-                  &quot;We don't just capture moments; we craft visual legacies. Every frame is composed with intention and artistic precision.&quot;
+                  &quot;We don&apos;t just capture moments; we craft visual legacies. Every frame is composed with intention and artistic precision.&quot;
                 </p>
               </div>
             </div>
