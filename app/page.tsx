@@ -198,15 +198,15 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-4 mb-8">
                   <div className="size-16 rounded-full overflow-hidden border-2 border-gold/20">
-                    <div className="relative w-full h-full"> <Image alt="Film Director" layout="fill" objectFit="cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0HT17O34W1KpOLpib2sejHV30-JyjlOA8TbFIer_WkTeU8-WDkTOQpiS2Ja-swcELTmlIFxUeWXv1TRbOU1cZJuTzLx6sO4RSqEbeL6s8bnCWZJJ406-XzSExrlYUjvdAL47uTy7-iSIef6xWiKjT1ATS7LAmdnPLwKwMqznWRD01VosgEhDT1NSNZqU2qJnju-xTaDqybGG0TfUQJSFsztQpcTJkXnqSmKCwqWW-Au6cgdOwrqIgSwrDOt1_MoovQOrHyX9AnB4" /> </div>
+                    <div className="relative w-full h-full"> <Image alt="Creative Director" layout="fill" objectFit="cover" src="/images/morgan_azi.jpg" /> </div>
                   </div>
                   <div>
-                    <h4 className="font-bold text-lg">Chidi Nwosu</h4>
-                    <p className="text-gold text-sm font-medium uppercase tracking-wider">Film Director</p>
+                    <h4 className="font-bold text-lg">Morgan Azi</h4>
+                    <p className="text-gold text-sm font-medium uppercase tracking-wider">Creative Director</p>
                   </div>
                 </div>
                 <p className="text-slate-300 text-lg leading-relaxed italic">
-                  &quot;Their post-production suite is top-tier. For cinematic sound design and color grading, Deos Record is my first choice every single time.&quot;
+                  &quot;We don't just capture moments; we craft visual legacies. Every frame is composed with intention and artistic precision.&quot;
                 </p>
               </div>
             </div>
@@ -248,7 +248,7 @@ export default function Home() {
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold/20 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
               <h2 className="text-4xl md:text-5xl font-black mb-6 relative z-10">Ready to create your masterpiece?</h2>
               <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto relative z-10">Join the community of creators in Abuja who trust Deos Record for their professional production needs.</p>
-              <Link href="/booking" className="bg-white text-primary px-10 py-4 rounded-full text-lg font-bold hover:bg-slate-100 transition-all transform hover:scale-105 relative z-10">
+              <Link href="/booking" className="bg-white text-slate-900 px-10 py-4 rounded-full text-lg font-bold hover:bg-slate-100 transition-all transform hover:scale-105 relative z-10">
                 Secure Your Session
               </Link>
             </div>

@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Footer from "../../components/Footer";
+import { teamMembers } from "../../data/services";
 
 export default function TeamPage() {
     return (
@@ -49,156 +50,37 @@ export default function TeamPage() {
                 {/* Team Grid Section */}
                 <div className="px-6 md:px-20 lg:px-40 pb-20">
                     <div className="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {/* Team Member 1 */}
-                        <div className="group relative flex flex-col gap-5 overflow-hidden rounded-xl bg-white/5 p-4 border border-white/10 hover:border-primary/50 transition-all duration-500">
-                            <div className="relative w-full aspect-4/5 overflow-hidden rounded-lg">
-                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("/images/dr_sammy.jpg")' }}>
-                                </div>
-                                <div className="absolute inset-0 bg-linear-to-b from-transparent to-background-dark/90 opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                                <div className="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                                    <div className="flex gap-2 justify-center">
-                                        <div className="rounded-full bg-primary/90 text-background-dark p-2 cursor-pointer hover:bg-white transition-colors">
-                                            <span className="material-symbols-outlined text-[18px]!">share</span>
-                                        </div>
-                                        <div className="rounded-full bg-primary/90 text-background-dark p-2 cursor-pointer hover:bg-white transition-colors">
-                                            <span className="material-symbols-outlined text-[18px]!">alternate_email</span>
-                                        </div>
+                        {teamMembers.map((member, i) => (
+                            <div key={i} className="group relative flex flex-col gap-5 overflow-hidden rounded-xl bg-white/5 p-4 border border-white/10 hover:border-primary/50 transition-all duration-500">
+                                <div className="relative w-full aspect-4/5 overflow-hidden rounded-lg">
+                                    <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: `url("${member.avatar}")` }}>
                                     </div>
-                                </div>
-                            </div>
-                            <div className="space-y-2">
-                                <div className="flex justify-between items-start">
-                                    <div>
-                                        <h3 className="text-slate-900 dark:text-white text-xl font-bold">Dr. Sammy</h3>
-                                        <p className="text-primary text-sm font-semibold uppercase tracking-wider">Music Producer/Audio Engineer</p>
-                                    </div>
-                                    <span className="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">graphic_eq</span>
-                                </div>
-                                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                                    Driving the sonic vision of Abuja with over 12 years of experience in multi-platinum music production.
-                                </p>
-                            </div>
-                        </div>
-                        {/* Team Member 2 */}
-                        <div className="group relative flex flex-col gap-5 overflow-hidden rounded-xl bg-white/5 p-4 border border-white/10 hover:border-primary/50 transition-all duration-500">
-                            <div className="relative w-full aspect-4/5 overflow-hidden rounded-lg">
-                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("/images/studio/studio-console-vertical.jpg")' }}>
-                                </div>
-                                <div className="absolute inset-0 bg-linear-to-b from-transparent to-background-dark/90 opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                                <div className="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                                    <div className="flex gap-2 justify-center">
-                                        <div className="rounded-full bg-primary/90 text-background-dark p-2 cursor-pointer hover:bg-white transition-colors">
-                                            <span className="material-symbols-outlined text-[18px]!">link</span>
-                                        </div>
-                                        <div className="rounded-full bg-primary/90 text-background-dark p-2 cursor-pointer hover:bg-white transition-colors">
-                                            <span className="material-symbols-outlined text-[18px]!">photo_camera</span>
+                                    <div className="absolute inset-0 bg-linear-to-b from-transparent to-background-dark/90 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                                    <div className="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                                        <div className="flex gap-2 justify-center">
+                                            <div className="rounded-full bg-primary/90 text-background-dark p-2 cursor-pointer hover:bg-white transition-colors">
+                                                <span className="material-symbols-outlined text-[18px]!">share</span>
+                                            </div>
+                                            <div className="rounded-full bg-primary/90 text-background-dark p-2 cursor-pointer hover:bg-white transition-colors">
+                                                <span className="material-symbols-outlined text-[18px]!">alternate_email</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="space-y-2">
-                                <div className="flex justify-between items-start">
-                                    <div>
-                                        <h3 className="text-slate-900 dark:text-white text-xl font-bold">Sarah J.</h3>
-                                        <p className="text-primary text-sm font-semibold uppercase tracking-wider">Audio Engineer</p>
-                                    </div>
-                                    <span className="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">settings_input_component</span>
-                                </div>
-                                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                                    Precision in every frequency. Sarah specializes in Dolby Atmos mixing and complex spatial audio design.
-                                </p>
-                            </div>
-                        </div>
-                        {/* Team Member 3 */}
-                        <div className="group relative flex flex-col gap-5 overflow-hidden rounded-xl bg-white/5 p-4 border border-white/10 hover:border-primary/50 transition-all duration-500">
-                            <div className="relative w-full aspect-4/5 overflow-hidden rounded-lg">
-                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("/images/oiza_daniel.jpg")' }}>
-                                </div>
-                                <div className="absolute inset-0 bg-linear-to-b from-transparent to-background-dark/90 opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                                <div className="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                                    <div className="flex gap-2 justify-center">
-                                        <div className="rounded-full bg-primary/90 text-background-dark p-2 cursor-pointer hover:bg-white transition-colors">
-                                            <span className="material-symbols-outlined text-[18px]!">videocam</span>
+                                <div className="space-y-2">
+                                    <div className="flex justify-between items-start">
+                                        <div>
+                                            <h3 className="text-slate-900 dark:text-white text-xl font-bold">{member.name}</h3>
+                                            <p className="text-primary text-sm font-semibold uppercase tracking-wider">{member.role}</p>
                                         </div>
-                                        <div className="rounded-full bg-primary/90 text-background-dark p-2 cursor-pointer hover:bg-white transition-colors">
-                                            <span className="material-symbols-outlined text-[18px]!">movie</span>
-                                        </div>
+                                        <span className="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">graphic_eq</span>
                                     </div>
+                                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                        Dedicated professional contributing to the creative vision of Deos Record.
+                                    </p>
                                 </div>
                             </div>
-                            <div className="space-y-2">
-                                <div className="flex justify-between items-start">
-                                    <div>
-                                        <h3 className="text-slate-900 dark:text-white text-xl font-bold">Oiza Daniel</h3>
-                                        <p className="text-primary text-sm font-semibold uppercase tracking-wider">Podcast Host</p>
-                                    </div>
-                                    <span className="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">mic</span>
-                                </div>
-                                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                                    Expert voice in navigating the multi-media landscape. Oiza brings charismatic storytelling and depth to every conversation.
-                                </p>
-                            </div>
-                        </div>
-                        {/* Team Member 4 */}
-                        <div className="group relative flex flex-col gap-5 overflow-hidden rounded-xl bg-white/5 p-4 border border-white/10 hover:border-primary/50 transition-all duration-500">
-                            <div className="relative w-full aspect-4/5 overflow-hidden rounded-lg">
-                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("/images/morgan_azi.jpg")' }}>
-                                </div>
-                                <div className="absolute inset-0 bg-linear-to-b from-transparent to-background-dark/90 opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                            </div>
-                            <div className="space-y-2">
-                                <div className="flex justify-between items-start">
-                                    <div>
-                                        <h3 className="text-slate-900 dark:text-white text-xl font-bold">Morgan Azi</h3>
-                                        <p className="text-primary text-sm font-semibold uppercase tracking-wider">Creative Director</p>
-                                    </div>
-                                    <span className="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">palette</span>
-                                </div>
-                                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                                    Visionary leader in multimedia art. Morgan oversees the creative direction of all high-impact projects at Deos Record.
-                                </p>
-                            </div>
-                        </div>
-                        {/* Team Member 5 */}
-                        <div className="group relative flex flex-col gap-5 overflow-hidden rounded-xl bg-white/5 p-4 border border-white/10 hover:border-primary/50 transition-all duration-500">
-                            <div className="relative w-full aspect-4/5 overflow-hidden rounded-lg">
-                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("/images/studio/studio-console-angle.jpg")' }}>
-                                </div>
-                                <div className="absolute inset-0 bg-linear-to-b from-transparent to-background-dark/90 opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                            </div>
-                            <div className="space-y-2">
-                                <div className="flex justify-between items-start">
-                                    <div>
-                                        <h3 className="text-slate-900 dark:text-white text-xl font-bold">Kevin L.</h3>
-                                        <p className="text-primary text-sm font-semibold uppercase tracking-wider">Sound Designer</p>
-                                    </div>
-                                    <span className="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">surround_sound</span>
-                                </div>
-                                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                                    Crafting immersive soundscapes for film and gaming. Expert in Foley and synthetic audio manipulation.
-                                </p>
-                            </div>
-                        </div>
-                        {/* Team Member 6 */}
-                        <div className="group relative flex flex-col gap-5 overflow-hidden rounded-xl bg-white/5 p-4 border border-white/10 hover:border-primary/50 transition-all duration-500">
-                            <div className="relative w-full aspect-4/5 overflow-hidden rounded-lg">
-                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: 'url("/images/studio/studio-desk-keyboard.jpg")' }}>
-                                </div>
-                                <div className="absolute inset-0 bg-linear-to-b from-transparent to-background-dark/90 opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                            </div>
-                            <div className="space-y-2">
-                                <div className="flex justify-between items-start">
-                                    <div>
-                                        <h3 className="text-slate-900 dark:text-white text-xl font-bold">Zoe A.</h3>
-                                        <p className="text-primary text-sm font-semibold uppercase tracking-wider">Lead Editor</p>
-                                    </div>
-                                    <span className="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">content_cut</span>
-                                </div>
-                                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                                    The final touch of perfection. Zoe brings narrative cohesion to raw footage with master-level editing.
-                                </p>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
                 {/* Social Actions Bar */}
