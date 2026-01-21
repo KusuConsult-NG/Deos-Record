@@ -43,7 +43,7 @@ export default function Footer() {
                     <ul className="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
                         <li className="flex items-center gap-3">
                             <span className="material-symbols-outlined text-primary dark:text-gold text-lg">location_on</span>
-                            <a href="https://maps.google.com/?q=Wuse+II,+Abuja,+Nigeria" target="_blank" rel="noopener noreferrer" className="hover:text-primary dark:hover:text-gold transition-colors">Wuse II, Abuja, Nigeria</a>
+                            <a href="https://maps.google.com/?q=Suit+c3,+Jodepal+Plaza,+1st+Avenue+Gwarimpa,+Abuja" target="_blank" rel="noopener noreferrer" className="hover:text-primary dark:hover:text-gold transition-colors">Suit c3, Jodepal Plaza, 1st Avenue Gwarimpa, Abuja</a>
                         </li>
                         <li className="flex items-center gap-3">
                             <span className="material-symbols-outlined text-primary dark:text-gold text-lg">call</span>
@@ -51,7 +51,7 @@ export default function Footer() {
                         </li>
                         <li className="flex items-center gap-3">
                             <span className="material-symbols-outlined text-primary dark:text-gold text-lg">mail</span>
-                            <a href="mailto:hello@deosrecord.com" className="hover:text-primary dark:hover:text-gold transition-colors">hello@deosrecord.com</a>
+                            <a href="mailto:deosstudio33@gmail.com" className="hover:text-primary dark:hover:text-gold transition-colors">deosstudio33@gmail.com</a>
                         </li>
                     </ul>
                 </div>

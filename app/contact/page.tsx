@@ -45,12 +45,12 @@ export default function ContactPage() {
                         <div className="space-y-4 text-slate-900 dark:text-white">
                             <div className="p-6 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-[#483f23]">
                                 <h3 className="font-bold text-lg mb-2">Studio Location</h3>
-                                <p>Wuse II, Abuja, Nigeria</p>
+                                <p>Suit c3, Jodepal Plaza, 1st Avenue Gwarimpa, Abuja</p>
                             </div>
                             <div className="p-6 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-[#483f23]">
                                 <h3 className="font-bold text-lg mb-2">Contact Info</h3>
                                 <p>+234 800 123 4567</p>
-                                <p>hello@deosrecord.com</p>
+                                <p>deosstudio33@gmail.com</p>
                             </div>
                         </div>
 
