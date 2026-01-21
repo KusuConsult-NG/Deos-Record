@@ -391,9 +391,9 @@ export default function BookingForm() {
                                 <span className="material-symbols-outlined">lock</span>
                                 {getButtonText()}
                             </button>
-                            <div className="flex justify-center">
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img src="/images/paystack-logo.png" alt="Secured by Paystack" className="h-4 opacity-50 grayscale hover:grayscale-0 transition-all" />
+                            <div className="flex justify-center items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity">
+                                <span className="material-symbols-outlined text-[16px]">lock_open</span>
+                                <span className="text-[10px] uppercase font-bold tracking-widest text-[#c9bb92]">Secured by Paystack</span>
                             </div>
                         </div>
                     </div>
