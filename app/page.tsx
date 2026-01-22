@@ -167,7 +167,7 @@ export default function Home() {
                     <div className="relative w-full h-full"> <Image alt="Music Producer" layout="fill" objectFit="cover" src="/images/dr_sammy.jpg" /> </div>
                   </div>
                   <div>
-                    <h4 className="font-bold text-lg">Dr. Sammy</h4>
+                    <h4 className="font-bold text-lg">Dr. Simmy</h4>
                     <p className="text-gold text-sm font-medium uppercase tracking-wider">Music Producer</p>
                   </div>
                 </div>

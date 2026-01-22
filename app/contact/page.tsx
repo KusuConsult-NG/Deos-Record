@@ -49,7 +49,7 @@ export default function ContactPage() {
                             </div>
                             <div className="p-6 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-[#483f23]">
                                 <h3 className="font-bold text-lg mb-2">Contact Info</h3>
-                                <p>+234 800 123 4567</p>
+                                <p>+234 906 950 3624</p>
                                 <p>deosstudio33@gmail.com</p>
                             </div>
                         </div>
